@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.dta
+data-viz/inputs/USA Country Report 2024 - outline.docx
+data-viz/inputs/GPP_2024_USA Datamap.xlsx
+data-viz/inputs/US_Report_WJP.pdf
+data-viz/inputs/USA TPS 24.xlsx
+data-viz/inputs/GPP Questionnaire 2024_US Abridged FINAL.docx
+/html/static/charts_and_images
+*.pyc
