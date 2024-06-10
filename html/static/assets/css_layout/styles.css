@@ -63,8 +63,7 @@ p{
 	color: #FFF;
 	font-size: 24px;
 	font-weight: 900;
-  }
-
+}
 .acknowledgements{
 	font-size:30px; font-weight:700;color:#482d8a;
 }
@@ -644,19 +643,22 @@ a[aria-expanded="true"] {
 .bg-purple .li{
 	padding-left: 12px !important;
 }
-#ExecutiveFindingsPage3{
-	padding-bottom: 1.5rem;
-}
 .ml-4.bl-purple{
 	margin-left: 1.8rem!important;
 }
+.ExecutiveFindings_general {
+	padding-bottom: 0rem !important;
+}
 
 @media screen and (min-width: 768px) {
-	#Accountability, #ExecutiveFindingsPage3, #Trust, #VictimSupport, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #AuthoritarianBehavior3, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #Security, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
-		padding-bottom: 3rem;
+	.ExecutiveFindings_general{
+		padding-bottom: 0rem;
 	}
-	#ExecutiveFindingsPage3 .col-md-12.mb-4 p:last-child{
+	.ExecutiveFindings_general .col-md-12.mb-4 p:last-child{
 		margin-bottom: 0px !important;
+	}
+	#Accountability, #Trust, #VictimSupport, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #AuthoritarianBehavior3, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #Security, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
+		padding-bottom: 3rem;
 	}
 	#AuthoritarianBehavior2 .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
@@ -684,9 +686,6 @@ a[aria-expanded="true"] {
 	}
 	#Police2 .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
-	}
-	#ExecutiveFindingsPage3{
-		padding-bottom: 1.5rem;
 	}
 }
 @media screen and (min-width: 992px) {
@@ -746,8 +745,9 @@ a[aria-expanded="true"] {
 	section.bg-page-gray.pb-5{
 		padding-bottom: 2rem !important;
 	}
-	#ExecutiveFindingsPage2 .container{
-		margin-top: 1.3rem;
+	.ExecutiveFindings_general .container{
+		margin-top: 0rem !important;
+		padding-bottom: 0rem !important;
 	}
 	#FundamentalFreedoms2 .row.justify-content-center.mt-4{
 		margin-top: 0rem !important;
@@ -805,7 +805,7 @@ a[aria-expanded="true"] {
 	#AdditionalCountries .table-responsive{
 	overflow: -moz-scrollbars-vertical; 
     overflow-x: scroll;
-}
+	}
 
 	#AdditionalCountries .table-responsive::-webkit-scrollbar {
 		appearance: none;
@@ -832,9 +832,6 @@ a[aria-expanded="true"] {
 		color: #fff;
 		background: #888 url("../images_layout/icnSwipe.svg") 5px 5px no-repeat;
 		background-size: 22px;
-	  }
-	#ExecutiveFindingsPage3{
-		padding-bottom: 2rem;
 	}
 	#AuthoritarianBehavior2 .col-md-11.mb-4{
 		margin-bottom: 0px !important;

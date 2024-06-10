@@ -87,3 +87,87 @@
 </section>
 {% endmacro %}
 <!-- end ACKNOWLEDGMENTS  -->
+
+<!-- TABLE of CONTENTS  -->
+{% macro toc(toc_data) %}
+<section class="print table-contents">
+    <div class="container">
+        <div class="row justify-content-center py-5">
+            <div class="col-sm-8 col-md-7 mt-5">
+                
+                <p class="title-p">TABLE OF CONTENTS</p>
+                {% for id, items in toc_data.items() %}
+                    {% if items["subsection_header"] == "None" %}
+                        <p class="mb-0 mt-4" style="color:#482d8a"><a href="#{{id}}"><em class="ff-a">{{items["section_header"]}}</em></a></p>
+                    {% endif %}
+                    {% if items["subsection_header"] != "None" %}
+                    <p class="li mb-0"><a href="#{{id}}"><span>{{items["page"]}}</span>{{items["subsection_header"]}}</a></p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endmacro %}
+<!-- end TABLE of CONTENTS  -->
+
+<!-- SECTION PAGE -->
+{% macro section_page(section_data) %}
+<section id="{{section_data.id}}" class="bg-purple">
+    <div class="container">
+        <div class="height85vh">
+            <div class="row h-100 p-5">
+                <div class="col-12">
+                    <div class="row align-items-center h-100">
+                        <div class="col-12">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 border-left pl-4">
+                                    <h3 class="text-white mb-0">
+                                        {{section_data.header}}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-md-4">
+                                    {% for _, row in section_data["toc"].iterrows() %}
+                                        <p class="li mb-0 text-white"><span class="hide-number">{{row["page"]}}</span><a href="#{{id}}">{{row["subsection_header"]}}</a></p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endmacro %}
+<!-- end SECTION PAGE  -->
+
+<!-- ABOUT THIS REPORT -->
+{% macro aboutReport(section_data) %}
+<section id="AboutThisReport" class="bg-page-gray">
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-11 mt-4">
+                <p class="title-p">ABOUT THIS REPORT</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-11 mt-4">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        {{section_data.text | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if section_data.evenPage %}
+        <div class="page-number left-number"><b>{{section_data.page}}</b> {{section_data.header}}</div>
+    {% else %}
+        <div class="page-number">{{section_data.header}} <b>{{section_data.page}}</b></div>
+    {% endif %}
+</section>
+{% endmacro %}
+<!-- end ABOUT THIS REPORT -->

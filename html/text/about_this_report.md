@@ -1,0 +1,11 @@
+<b class="c-purple">EFFECTIVE RULE OF LAW</b> reduces corruption, combats poverty and disease, and protects people from injustices large and small. Strengthening the rule of law is an important objective for governments, donors, and civil society organizations around the world. To be effective, rule of law development requires clarity about the fundamental features that define the rule of law, as well as an adequate basis for its evaluation and measurement.
+
+<i>The Rule of Law in the United States: Key Findings from the WJP General Population Poll 2021</i>  presents question-level data drawn from the General Population Poll (GPP), an original data source designed and collected by the World Justice Project. To provide a more in-depth view of trends in perceptions of rule of law in the United States, this report also presents select findings over time and compared to other countries in the international Group of 7 (G7).
+
+The GPP was conducted through online interviews to a nationally representative sample of 1,258 U.S. households in 2021. This poll was designed to capture data on the experiences and perceptions of ordinary people regarding a variety of themes related to the rule of law.
+
+{% BOX %}
+This report represents the voices of people in the United States and their experiences with the rule of law in their country.
+{% BOX END %}
+
+The data derived from the General Population Poll is presented in this report as thematic briefs, each one highlighting a different dimension of the rule of law from the perspective of people in the United States. These thematic briefs focus on the current rule of law ecosystem in the United States while simultaneously illuminating changes over time and comparisons across the following peer countries in the G7: Canada, France, Germany, Italy, Japan, and the United Kingdom. The sections of this report describe people's perceptions of and attitudes towards the following topics: accountability, authoritarianism, fundamental freedoms, corruption, trust in institutions, the criminal justice system and its actors, crime victimization, security, police performance, and discrimination.

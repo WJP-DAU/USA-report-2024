@@ -78,7 +78,12 @@
 	.table-contents p.li b:first-child{
 		margin-top: 0rem;
 	}
-	#AboutThisReport, #ExecutiveFindings, #ExecutiveFindingsPage2, #ExecutiveFindingsPage3, #ExecutiveFindingsPage4, #Authoritarianism, section{
+	.ExecutiveFindings_general {
+		padding-top: 4rem;
+		margin-top: 3rem;
+		height: 34.47cm;
+	}
+	#AboutThisReport, #Authoritarianism, section{
 		height:100vh;
 	}
 	#AboutThisReport .container{
@@ -88,7 +93,6 @@
 	#AboutThisReport .p-quote{
 		width: 90%;
 	}
-	
 	#AdditionalCountries .table-responsive:before {
 		padding: 2px 5px;
 		content: "Swipe left to read more";
@@ -96,15 +100,6 @@
 		  background: #888;
 		display: none;
 	  }
-	#ExecutiveFindingsPage2{
-		padding-top: 4rem !important;
-	}
-	#ExecutiveFindingsPage3{
-		padding-top: 4rem !important;
-	}
-	#ExecutiveFindingsPage4{
-		padding-top: 4rem !important;
-	}
 	#DescriptionSample{
 		padding-top: 3rem !important;
 	}
@@ -184,63 +179,6 @@
 	}
 	.bg-purple .hide-number{
 		line-height: 32px;
-	}
-	
-	
-	/* Safari 7.1+ */
-	
-	_::-webkit-full-page-media, _:future, :root body{
-		font-size:15px;
-	}
-
-	_::-webkit-full-page-media, _:future, :root .bg-page-cover{
-		background: url('../images_layout/pict2.jpg') center center no-repeat;
-  		background-size:cover;
-		min-height: 31.5cm;
-		print-color-adjust:exact;
-		-webkit-print-color-adjust:exact;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root .text-cover{
-			height:calc(100vh - 10px) !important;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root .bg-page-gray.pb-5{
-		padding-bottom: 1rem!important;
-	}
-	_::-webkit-full-page-media, _:future, :root .container.pt-5{
-		padding-top: 1rem!important;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root .data-Acknowledgements.p-5{
-		padding: 2rem 3rem 1rem!important;
-	}
-	_::-webkit-full-page-media, _:future, :root .bg-data-Acknowledgements.mt-5{
-		margin-top: 3rem !important;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root .table-contents{
-		margin-top: -50px;
-		background: #fff;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root .table-contents .col-sm-8.col-md-4.mt-5{
-		padding-top:50px !important;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root #About{
-		min-height: 31.5cm;
-	}
-	_::-webkit-full-page-media, _:future, :root #About .row.align-items-center.h-100{
-		height: 27cm !important;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root #AboutThisReport{
-		min-height: 31.5cm;
-	}
-	
-	_::-webkit-full-page-media, _:future, :root #ExecutiveFindings{
-		font-size:14px;
 	}
 	
 	section{
@@ -380,37 +318,15 @@
 	#AboutThisReport .container.pt-5, #SpecialNote .container.pt-5{
 		padding-top: 120px !important;
 	}
-	/* Executive Findings page 6 */
-	#ExecutiveFindings{
-		height: 34.47cm;
-	}
-	/* Executive Findings page 7 */
-	#ExecutiveFindingsPage2{
-		height: 34.47cm;
-	}
-	#ExecutiveFindingsPage2 .col.bl-purple.title-section.mt-4{
-		margin-top: 0.5rem!important;
-	}
-	/* Executive Findings page 8 */
-	#ExecutiveFindingsPage3{
-		height: 34.47cm;
-	}
-	#ExecutiveFindingsPage4{
-		height: 34.47cm;
-	}
-	#ExecutiveFindings p, #ExecutiveFindingsPage2 p, #ExecutiveFindingsPage3 p, #ExecutiveFindingsPage4, p #SpecialNote p{
+	.ExecutiveFindings_general p, #SpecialNote p, .ExecutiveFindings_general p{
 		line-height: 1.4;
 		font-size: 0.92rem;
 	}
-	#ExecutiveFindings li, #ExecutiveFindingsPage2 li, #ExecutiveFindingsPage3 li, #ExecutiveFindingsPage4 li, #SpecialNote li{
-		line-height: 1.4;
-		font-size: 0.92rem;
-	}
-	#ExecutiveFindings .sectitle, #ExecutiveFindingsPage2 .sectitle, #ExecutiveFindingsPage3 .sectitle, #ExecutiveFindingsPage4 .sectitle{
+	.ExecutiveFindings_general .sectitle {
 		line-height: 1.8;
 		font-size: 1.1rem;
 	}
-	#ExecutiveFindings p.title-p, #SpecialNote p.title-p{
+	.ExecutiveFindings_general p.title-p, #SpecialNote p.title-p{
 		font-size: 30px;
 	}
 	/* AUTHORITARIANISM chart1 page 10 */

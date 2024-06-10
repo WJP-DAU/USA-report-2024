@@ -16,25 +16,25 @@
 
         <!-- HTML Meta Tags -->
         <title>The Rule of Law in the United States</title>
-        <meta name="description" content="This report presents perceptions and experiences of authoritarianism, corruption and trust, security, and criminal justice.">
+        <meta name="description" content="{{dynamic_data.general.description}}">
 
         <!-- Google / Search Engine Tags -->
-        <meta itemprop="name" content="The Rule of Law in the United States">
-        <meta itemprop="description" content="This report presents perceptions and experiences of authoritarianism, corruption and trust, security, and criminal justice.">
-        <meta itemprop="image" content="https://worldjusticeproject.org/rule-of-law-lac/shareimage_LAC.jpg">
+        <meta itemprop="name" content="{{dynamic_data.general.title}}">
+        <meta itemprop="description" content="{{dynamic_data.general.description}}">
+        <meta itemprop="image" content="{{dynamic_data.general.shareImage}}">
 
         <!-- Facebook Meta Tags -->
         <meta property="og:url" content="https://worldjusticeproject.org/rule-of-law-index">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="The Rule of Law in the United States">
-        <meta property="og:description" content="This report presents perceptions and experiences of authoritarianism, corruption and trust, security, and criminal justice.">
-        <meta property="og:image" content="https://worldjusticeproject.org/rule-of-law-lac/shareimage_LAC.jpg">
+        <meta property="og:title" content="{{dynamic_data.general.title}}">
+        <meta property="og:description" content="{{dynamic_data.general.description}}">
+        <meta property="og:image" content="{{dynamic_data.general.shareImage}}">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="The Rule of Law in the United States">
-        <meta name="twitter:description" content="This report presents perceptions and experiences of authoritarianism, corruption and trust, security, and criminal justice.">
-        <meta name="twitter:image" content="https://worldjusticeproject.org/rule-of-law-lac/shareimage_LAC.jpg">
+        <meta name="twitter:title" content="{{dynamic_data.general.title}}">
+        <meta name="twitter:description" content="{{dynamic_data.general.description}}">
+        <meta name="twitter:image" content="{{dynamic_data.general.shareImage}}">
 
         <!-- Style Sheets -->
         <link rel="stylesheet" href="static/assets/css_layout/bootstrap.min.css">
@@ -48,7 +48,6 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
         
     </head>
-    {% import "macros.html" as macros %}
     <body>
         <div class="wrapper" id="invoice">
 
@@ -69,7 +68,7 @@
                             <a href="https://worldjusticeproject.org/our-work/wjp-rule-law-index">Research and Data</a>
                         </li>
                         <li>
-                            <a href="https://worldjusticeproject.org/our-work/research-and-data/rule_of_law_COUNTRY_YEAR">Rule of Law in the USA 2021</a>
+                            <a href="https://worldjusticeproject.org/our-work/research-and-data/rule_of_law_COUNTRY_YEAR">Rule of Law in the USA 2024</a>
                         </li>
                     </ol>
                 </div>
@@ -138,7 +137,7 @@
                         </a>
                     </li>
                     <li>
-                        <a id="MenuDownload" class="btn-level1 menuOpt" onclick="window.open('static/US_Report_WJP.pdf')">
+                        <a id="MenuDownload" class="btn-level1 menuOpt" onclick="window.open('{{dynamic_data.general.pdfName}}')">
                             <img src="static/assets/images_layout/icnDownload.svg" class="mx-2"><span>Download</span>
                         </a>
                     </li>
@@ -146,16 +145,26 @@
             </nav>
 
             <!-- Beginning of REPORT CONTENT -->
+            {% import "general.html" as general %}
+            {% import "executive_findings.html" as execfinds %}
             <div id="content">
 
                 <!-- COVER  -->
-                {{macros.cover(dynamic_data["general"])}}
-                <!-- end COVER  -->
+                {{general.cover(dynamic_data["general"])}}
                     
                 <!-- ACKNOWLEDGMENTS  -->
-                {{macros.acknowledgements(dynamic_data["acknowledgements"])}}
+                {{general.acknowledgements(dynamic_data["acknowledgements"])}}
 
-                
+                <!-- TABLE OF CONTENTS -->
+                {{general.toc(dynamic_data["toc"])}}
+
+                <!-- ABOUT THIS REPORT -->
+                {{general.section_page(dynamic_data["aboutReport"]["section_page"])}}
+                {{general.aboutReport(dynamic_data["aboutReport"])}}
+
+                <!-- EXECUTIVE FINDINGS -->
+                {{execfinds.execFindings(dynamic_data["ExecFindings"])}}
+
             </div>
 
         </div>
