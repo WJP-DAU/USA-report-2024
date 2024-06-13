@@ -25,6 +25,7 @@
 # Loading settings and functions
 source("code/settings.R")
 source("code/data-wrangling.R")
+source("code/data-viz.R")
 
 # Loading data
 master_data <- read_dta(
@@ -87,4 +88,9 @@ write.xlsx(data_points, "outputs/data_points.csv")
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+data_plots <- lapply(
+  viz_panels,
+  callVisualizer,
+  figure_map = figure_map,
+  outline    = outline
+)
