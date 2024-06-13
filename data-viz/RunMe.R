@@ -27,7 +27,12 @@ source("code/settings.R")
 source("code/data-wrangling.R")
 
 # Loading data
-master_data <- read_dta("data/USA_data.dta") %>%
+master_data <- read_dta(
+  file.path(path2SP,
+            "Data Analytics/6. Country Reports/USA-report-2024/data-viz",
+            "data/USA_data.dta",
+            fsep = "/")
+) %>%
   mutate(
     latestYear = 2024,
     pparty = case_when(
