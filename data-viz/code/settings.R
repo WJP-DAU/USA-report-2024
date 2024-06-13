@@ -58,7 +58,7 @@ if (Sys.info()["user"] == "ctoruno") {
 
 }
 if (Sys.info()["user"] == "nclapacs"){
-  path2SP <- "..."
+  path2SP <- "C:/Users/nclapacs/OneDrive - World Justice Project"
 }
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
