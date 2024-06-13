@@ -26,6 +26,8 @@ def report():
     )
     soup = BeautifulSoup(rendered_html, 'html.parser')
     pretty_html = soup.prettify()
+    with open('index.html', 'w') as f:         
+        f.write(pretty_html)   
     return pretty_html
 
 if __name__ == "__main__":

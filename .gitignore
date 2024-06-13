@@ -10,3 +10,4 @@ data-viz/inputs/USA TPS 24.xlsx
 data-viz/inputs/GPP Questionnaire 2024_US Abridged FINAL.docx
 /html/static/charts_and_images
 *.pyc
+/data-viz/outputs

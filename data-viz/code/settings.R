@@ -1,6 +1,6 @@
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## Script:            USA Report - Settings
+## Script:            USA Report 2024 - Settings
 ##
 ## Author(s):         Carlos A. Toruño Paniagua   (ctoruno@worldjusticeproject.org)
 ##
@@ -18,7 +18,7 @@
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 1.  Required packages                                                                                    ----
+## 0.  Required packages                                                                                    ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -37,6 +37,14 @@ p_load(char = c(
   "tidyverse"
   
 ))
+
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+##
+## 1.  Required vizfunctions                                                                                ----
+##
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+source("https://raw.githubusercontent.com/ctoruno/WJPr/main/R/barsChart.R")
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,24 +67,24 @@ if (Sys.info()["user"] == "nclapacs"){
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-path2fonts<- file.path(
-  path2SP, "Data Analytics/6. Country Reports/0. Fonts", 
-  fsep = "/"
-)
-font_add(family     = "Lato Full",
-         regular    = file.path(path2fonts, "Lato-Regular.ttf", fsep = "/"),
-         italic     = file.path(path2fonts, "Lato-LightItalic.ttf", fsep = "/"),
-         bold       = file.path(path2fonts, "Lato-Bold.ttf", fsep = "/"),
-         bolditalic = file.path(path2fonts, "Lato-BoldItalic.ttf", fsep = "/"))
-font_add(family  = "Lato Light",
-         regular = file.path(path2fonts, "Lato-Light.ttf", fsep = "/"))
-font_add(family  = "Lato Black",
-         regular = file.path(path2fonts, "Lato-Black.ttf", fsep = "/"))
-font_add(family  = "Lato Black Italic",
-         regular = file.path(path2fonts, "Lato-BlackItalic.ttf", fsep = "/"))
-font_add(family  = "Lato Medium",
-         regular = file.path(path2fonts, "Lato-Medium.ttf", fsep = "/"))
-showtext_auto()
+# path2fonts<- file.path(
+#   path2SP, "Data Analytics/6. Country Reports/0. Fonts", 
+#   fsep = "/"
+# )
+# font_add(family     = "Lato Full",
+#          regular    = file.path(path2fonts, "Lato-Regular.ttf", fsep = "/"),
+#          italic     = file.path(path2fonts, "Lato-LightItalic.ttf", fsep = "/"),
+#          bold       = file.path(path2fonts, "Lato-Bold.ttf", fsep = "/"),
+#          bolditalic = file.path(path2fonts, "Lato-BoldItalic.ttf", fsep = "/"))
+# font_add(family  = "Lato Light",
+#          regular = file.path(path2fonts, "Lato-Light.ttf", fsep = "/"))
+# font_add(family  = "Lato Black",
+#          regular = file.path(path2fonts, "Lato-Black.ttf", fsep = "/"))
+# font_add(family  = "Lato Black Italic",
+#          regular = file.path(path2fonts, "Lato-BlackItalic.ttf", fsep = "/"))
+# font_add(family  = "Lato Medium",
+#          regular = file.path(path2fonts, "Lato-Medium.ttf", fsep = "/"))
+# showtext_auto()
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -85,12 +93,12 @@ showtext_auto()
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-WJP_theme <- function() {
+USA_theme <- function() {
   theme(panel.background   = element_blank(),
         plot.background    = element_blank(),
-        panel.grid.major   = element_line(size     = 0.25,
-                                          colour   = "#5e5c5a",
-                                          linetype = "dashed"),
+        panel.grid.major   = element_line(linewidth = 0.25,
+                                          colour    = "#5e5c5a",
+                                          linetype  = "dashed"),
         panel.grid.minor   = element_blank(),
         axis.title.y       = element_text(family   = "Lato Full",
                                           face     = "plain",
