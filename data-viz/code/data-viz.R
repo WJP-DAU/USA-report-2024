@@ -173,23 +173,3 @@ callVisualizer <- function(pid, figure_map, outline){
   return(viz)
   
 }
-
-
-
-# data           = data_points[[pid]]               
-# target         = "values2plot"             
-# grouping       = "year"
-# ngroups        = data$variable                
-# labels         = NULL
-# colors         = "variable"
-# cvec           = parameters[["color_palette"]]
-# custom.axis    = T
-# x.breaks       = seq(2014, 2024, 2)
-# x.labels       = paste0("'", str_sub(seq(2014, 2024, 2), 
-#                                      start = -2))
-# sec.ticks      = seq(2014, 2024, 1)
-# ptheme         = WJP_theme()
-# 
-# repel          = F
-# transparency   = F      
-# transparencies = NULL
