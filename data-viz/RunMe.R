@@ -98,8 +98,8 @@ data_plots <- lapply(
   outline    = outline
 )
 
-for (p in viz_panels){
-  callVisualizer(p, figure_map, outline)
-}
-
-pid = "Figure_3_1_A"
+# for (p in viz_panels){
+#   callVisualizer(p, figure_map, outline)
+# }
+# 
+# pid = "Figure_3_1_A"
