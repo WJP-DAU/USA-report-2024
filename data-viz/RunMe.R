@@ -29,9 +29,8 @@ source("code/data-viz.R")
 
 # Loading data
 master_data <- read_dta(
-  file.path(path2SP,
-            "Data Analytics/6. Country Reports/USA-report-2024/data-viz",
-            "data/USA_data.dta",
+  file.path(path2main,
+            "data-viz/data/USA_data.dta",
             fsep = "/")
 ) %>%
   mutate(
@@ -55,6 +54,9 @@ figure_map <- read.xlsx("../report_outline.xlsx", sheet = "figure_map") %>%
   relocate(panelID)
 outline <- read.xlsx("../report_outline.xlsx", sheet = "outline") 
 
+# Cleaning outputs
+outputsReset(figure_map)
+
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
@@ -68,7 +70,7 @@ data_bank <- DataBank(master_data)
 # Producing data points
 viz_panels <- figure_map %>% 
   filter(
-    type %in% c("Bars")
+    type %in% c("Lines")
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels
@@ -79,7 +81,7 @@ data_points <- lapply(
 )
 
 # Saving data points
-write.xlsx(data_points, "outputs/data_points.csv")
+# write.xlsx(data_points, "outputs/data_points.csv")
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -88,9 +90,16 @@ write.xlsx(data_points, "outputs/data_points.csv")
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Calling a Visualizer for every panel
 data_plots <- lapply(
   viz_panels,
   callVisualizer,
   figure_map = figure_map,
   outline    = outline
 )
+
+for (p in viz_panels){
+  callVisualizer(p, figure_map, outline)
+}
+
+pid = "Figure_3_1_A"

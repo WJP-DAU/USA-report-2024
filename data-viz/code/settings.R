@@ -25,7 +25,7 @@
 library(pacman)
 p_load(char = c(
   # Visualizations
-  "showtext", "ggtext", "patchwork", "cowplot",
+  "showtext", "ggtext", "patchwork", "cowplot", "ggh4x",
   
   # Data Loading
   "haven", "openxlsx",
@@ -40,11 +40,12 @@ p_load(char = c(
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 1.  Required vizfunctions                                                                                ----
+## 1.  Required Viz Functions                                                                                ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source("https://raw.githubusercontent.com/ctoruno/WJPr/main/R/barsChart.R")
+source("https://raw.githubusercontent.com/ctoruno/WJPr/main/R/lineChart.R")
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,6 +61,11 @@ if (Sys.info()["user"] == "ctoruno") {
 if (Sys.info()["user"] == "nclapacs"){
   path2SP <- "..."
 }
+path2main <- file.path(
+  path2SP, "Data Analytics/6. Country Reports/USA-report-2024",
+  fsep = "/"
+)
+
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
@@ -67,24 +73,24 @@ if (Sys.info()["user"] == "nclapacs"){
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# path2fonts<- file.path(
-#   path2SP, "Data Analytics/6. Country Reports/0. Fonts", 
-#   fsep = "/"
-# )
-# font_add(family     = "Lato Full",
-#          regular    = file.path(path2fonts, "Lato-Regular.ttf", fsep = "/"),
-#          italic     = file.path(path2fonts, "Lato-LightItalic.ttf", fsep = "/"),
-#          bold       = file.path(path2fonts, "Lato-Bold.ttf", fsep = "/"),
-#          bolditalic = file.path(path2fonts, "Lato-BoldItalic.ttf", fsep = "/"))
-# font_add(family  = "Lato Light",
-#          regular = file.path(path2fonts, "Lato-Light.ttf", fsep = "/"))
-# font_add(family  = "Lato Black",
-#          regular = file.path(path2fonts, "Lato-Black.ttf", fsep = "/"))
-# font_add(family  = "Lato Black Italic",
-#          regular = file.path(path2fonts, "Lato-BlackItalic.ttf", fsep = "/"))
-# font_add(family  = "Lato Medium",
-#          regular = file.path(path2fonts, "Lato-Medium.ttf", fsep = "/"))
-# showtext_auto()
+path2fonts<- file.path(
+  path2SP, "Data Analytics/6. Country Reports/0. Fonts",
+  fsep = "/"
+)
+font_add(family     = "Lato Full",
+         regular    = file.path(path2fonts, "Lato-Regular.ttf", fsep = "/"),
+         italic     = file.path(path2fonts, "Lato-LightItalic.ttf", fsep = "/"),
+         bold       = file.path(path2fonts, "Lato-Bold.ttf", fsep = "/"),
+         bolditalic = file.path(path2fonts, "Lato-BoldItalic.ttf", fsep = "/"))
+font_add(family  = "Lato Light",
+         regular = file.path(path2fonts, "Lato-Light.ttf", fsep = "/"))
+font_add(family  = "Lato Black",
+         regular = file.path(path2fonts, "Lato-Black.ttf", fsep = "/"))
+font_add(family  = "Lato Black Italic",
+         regular = file.path(path2fonts, "Lato-BlackItalic.ttf", fsep = "/"))
+font_add(family  = "Lato Medium",
+         regular = file.path(path2fonts, "Lato-Medium.ttf", fsep = "/"))
+showtext_auto()
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,7 +99,7 @@ if (Sys.info()["user"] == "nclapacs"){
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-USA_theme <- function() {
+WJP_theme <- function() {
   theme(panel.background   = element_blank(),
         plot.background    = element_blank(),
         panel.grid.major   = element_line(linewidth = 0.25,
@@ -125,11 +131,38 @@ USA_theme <- function() {
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 5.  Color Palettes                                                                                       ----
+## 5.  General utilities                                                                                    ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+outputsReset <- function(figure_map){
+  
+  # Listing previous outputs
+  prevOutputs <- list.files(
+    file.path(
+      path2main,
+      "data-viz/outputs"
+    ), 
+    include.dirs = F, 
+    full.names   = T, 
+    recursive    = T
+  )
+  
+  # Deleting previous outputs
+  file.remove(prevOutputs)
+  
+  # Creating folders for each chart output within the country directory
+  figure_list <- figure_map %>% 
+    distinct(id) %>% 
+    pull(id)
+  for (figure in figure_list) {
+    dir.create(file.path(path2main,
+                         "data-viz/outputs",
+                         figure,
+                         fsep = "/"), 
+               showWarnings = FALSE)
+  }
+}
 
 
 
