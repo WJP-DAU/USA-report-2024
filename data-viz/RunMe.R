@@ -71,8 +71,8 @@ data_bank <- DataBank(master_data)
 # Producing data points
 viz_panels <- figure_map %>% 
   filter(
-    # type %in% c("Bars", "Lines", "Radar")
-    type %in% c("Gauge")
+    type %in% c("Bars", "Lines", "Radar", "Gauge")
+    # type %in% c("Gauge")
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels
@@ -99,9 +99,3 @@ data_plots <- lapply(
   figure_map = figure_map,
   outline    = outline
 )
-
-# for (p in viz_panels){
-#   callVisualizer(p, figure_map, outline)
-# }
-
-# pid = "Figure_3_1_A"
