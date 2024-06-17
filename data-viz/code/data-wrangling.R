@@ -192,7 +192,7 @@ getDataPoints <- function(pid, figure_map){
   )
   
   if (parameters[["time_frame"]] == "All"){
-    parameters[["time_frame"]] < c(2014, 2016, 2017, 2018, 2021, 2024)
+    parameters[["time_frame"]] <- c(2014, 2016, 2017, 2018, 2021, 2024)
   }
   
   # Defining data2plot
