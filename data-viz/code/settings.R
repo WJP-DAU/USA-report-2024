@@ -40,12 +40,21 @@ p_load(char = c(
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 1.  Required Viz Functions                                                                                ----
+## 1.  Required Viz Functions                                                                               ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source("https://raw.githubusercontent.com/ctoruno/WJPr/main/R/barsChart.R")
-source("https://raw.githubusercontent.com/ctoruno/WJPr/main/R/lineChart.R")
+viz2import <- c("barsChart.R", 
+                "lineChart.R", 
+                "radarChart.R")
+
+for (f in viz2import){
+  source(
+    paste0(
+      "https://raw.githubusercontent.com/ctoruno/WJPr/main/R/", f
+    )
+  )
+}
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

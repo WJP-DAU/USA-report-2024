@@ -114,6 +114,7 @@ callVisualizer <- function(pid, figure_map, outline){
       ptheme     = WJP_theme()
     )
   }
+  
   if(parameters[["plot_function"]] == "Lines"){
     viz <- wjp_lines(
       data           = data,                    
@@ -129,6 +130,18 @@ callVisualizer <- function(pid, figure_map, outline){
                                            start = -2)),
       sec.ticks      = seq(2014, 2024, 1),
       ptheme         = WJP_theme()
+    )
+  }
+  
+  if(parameters[["plot_function"]] == "Radar"){
+    viz <- wjp_radar(
+      data       = data,
+      axis_var   = "variable",
+      target_var = "values2plot",
+      label_var  = "labels",
+      color_var  = "sample",
+      colors     = parameters[["color_palette"]],
+      maincat    = "Democrats"
     )
   }
   

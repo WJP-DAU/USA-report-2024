@@ -108,7 +108,63 @@ DataBank <- function(data) {
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 2.  Data Points Extraction                                                                               ----
+## 2.  Labellers                                                                                             ----
+##
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+labelVars <- function(input){
+  
+  output <- case_when(
+    
+    # Fundamental Freedoms
+    input == "q46c_G2"      ~ paste("**People** can <br> express opinions<br>against the government"),
+    input == "q46f_G2"      ~ paste("**Civil society** <br>organizations can <br> express opinions",
+                                    "against<br>the government"),
+    input == "q46g_G2"      ~ paste("**Political parties**<br>can express opinions<br>",
+                                    "against the<br>government"),
+    input == "q46c_G1"      ~ paste("**The media**<br>can express opinions<br>",
+                                    "against the<br>government"),
+    input == "q46e_G2"      ~ paste("The media<br>can **expose cases<br>of corruption**"),
+    input == "q46d_G2"      ~ paste("People can<br>**attend community<br>meetings**"),
+    input == "q46f_G1"      ~ paste("People can<br>**join any political<br>organization**"),
+    input == "q46a_G2"      ~ paste("People can<br>**organize around an<br>issue or petition**"),
+    input == "q46d_G1"      ~ paste("Local government<br>officials **are elected<br>through a clean<br>process**"),
+    input == "q46e_G1"      ~ paste("People can<br>**vote freely** without<br>feeling harassed<br>or pressured"),
+    input == "q46h_G2"      ~ paste("Religious minorities<br>can **observe their<br>holy days**"),
+    
+    # USA Elections - TRUST
+    input == "USA_q19a"     ~ "Local Poll Workers",
+    input == "USA_q19b"     ~ "State-level Election<br>Administrators",
+    input == "USA_q19c"     ~ "State and Local<br>Courts",
+    input == "USA_q19d"     ~ "Congress",
+    input == "USA_q19e"     ~ "Federal and Appeal<br>Courts",
+    input == "USA_q19f"     ~ "Supreme Court",
+    
+    # USA Elections - Supreme Court set
+    input == "USA_q22a_G2"  ~ "Criminal cases<br>against presidential<br>candidates.",
+    input == "USA_q22b_G2"  ~ "Absentee ballot<br>rejection.",
+    input == "USA_q22c_G2"  ~ "Voting rights<br>cases.",
+    input == "USA_q22d_G2"  ~ "Cases of voter<br>",
+    input == "USA_q22e_G2"  ~ "Cases of vote<br>recounts.",
+    input == "USA_q22g"     ~ "A contested<br>presidential election.",
+    
+  )
+  
+  return(output)
+}
+
+labelVals <- function(input){
+  output <- paste0(format(round(input, 0),
+                          nsmall = 0),
+                   "%")
+  
+  return(output)
+}
+
+
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+##
+## 3.  Data Points Extraction                                                                               ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -118,7 +174,10 @@ getDataPoints <- function(pid, figure_map){
   parameters <- lapply(
     c("target_vars"  = "var_id", 
       "reportValues" = "reportValues", 
-      "grouping"     = "sample"),
+      "grouping"     = "sample",
+      "type"         = "type",
+      "label_var"    = "label_at",
+      "time_frame"   = "years"),
     function(target){
       unlist(
         str_split(
@@ -132,28 +191,64 @@ getDataPoints <- function(pid, figure_map){
     }
   )
   
+  if (parameters[["time_frame"]] == "All"){
+    parameters[["time_frame"]] < c(2014, 2016, 2017, 2018, 2021, 2024)
+  }
+  
   # Defining data2plot
   if (parameters["reportValues"] == "All"){
     data2plot <- data_bank %>%
       filter(
         variable %in% parameters[["target_vars"]] & 
-          sample %in% parameters[["grouping"]]
+          sample %in% parameters[["grouping"]] &
+          year   %in% parameters[["time_frame"]]
       )
     
   } else {
     data2plot <- data_bank %>%
       filter(
         variable %in% parameters[["target_vars"]] & 
-          value %in% parameters[["reportValues"]] & 
-          sample %in% parameters[["grouping"]]
+          value  %in% parameters[["reportValues"]] & 
+          sample %in% parameters[["grouping"]] &
+          year   %in% parameters[["time_frame"]]
       )
   }
+  
   data2plot <- data2plot %>%
     group_by(year, variable, sample) %>%
     summarise(
       values2plot = sum(perc, na.rm = T),
       .groups = "keep"
     )
+  
+  # Calling labelers
+  if (parameters["label_var"] == "Variables"){
+    data2plot <- data2plot %>% 
+      mutate(
+        labels = labelVars(variable)
+      )
+    
+    # Special labeling for Radars
+    if (parameters["type"] == "Radar"){
+      data2plot <- data2plot %>%
+        mutate(
+          across(labels,
+                 ~paste0("<span style='color:#524F4C;font-size:3.514598mm;font-weight:bold'>",
+                         labels,
+                         "</span>"))
+        )
+    }
+    
+  } else if (parameters["label_var"] == "Values"){
+    data2plot <- data2plot %>%
+      mutate(
+        labels = labelVals(values2plot)
+      )
+    
+    
+  } else {
+    data2plot <- data2plot
+  }
   
   return(data2plot)
   

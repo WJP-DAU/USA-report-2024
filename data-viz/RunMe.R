@@ -18,7 +18,7 @@
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 0.  Presettings                                                                                          ----
+## 0.  Presetting                                                                                           ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -48,6 +48,7 @@ master_data <- read_dta(
 
 # Loading figure map & outline
 figure_map <- read.xlsx("../report_outline.xlsx", sheet = "figure_map") %>%
+  select(-status) %>%
   mutate(
     panelID = paste(id, panel, sep = "_")
   ) %>%
@@ -70,7 +71,7 @@ data_bank <- DataBank(master_data)
 # Producing data points
 viz_panels <- figure_map %>% 
   filter(
-    type %in% c("Lines")
+    type %in% c("Bars", "Lines", "Radar")
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels
@@ -81,7 +82,7 @@ data_points <- lapply(
 )
 
 # Saving data points
-# write.xlsx(data_points, "outputs/data_points.csv")
+write.xlsx(data_points, "outputs/data_points.csv")
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -101,5 +102,5 @@ data_plots <- lapply(
 # for (p in viz_panels){
 #   callVisualizer(p, figure_map, outline)
 # }
-# 
-# pid = "Figure_3_1_A"
+
+# pid = "Figure_8_A"
