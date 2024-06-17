@@ -71,7 +71,8 @@ data_bank <- DataBank(master_data)
 # Producing data points
 viz_panels <- figure_map %>% 
   filter(
-    type %in% c("Bars", "Lines", "Radar")
+    # type %in% c("Bars", "Lines", "Radar")
+    type %in% c("Gauge")
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels

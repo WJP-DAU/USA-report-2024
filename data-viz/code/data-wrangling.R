@@ -195,7 +195,7 @@ getDataPoints <- function(pid, figure_map){
     parameters[["time_frame"]] <- c(2014, 2016, 2017, 2018, 2021, 2024)
   }
   
-  # Defining data2plot
+  # Filtering data
   if (parameters["reportValues"] == "All"){
     data2plot <- data_bank %>%
       filter(
@@ -214,12 +214,33 @@ getDataPoints <- function(pid, figure_map){
       )
   }
   
-  data2plot <- data2plot %>%
-    group_by(year, variable, sample) %>%
-    summarise(
-      values2plot = sum(perc, na.rm = T),
-      .groups = "keep"
-    )
+  # Aggregation
+  if (parameters["type"] != "Gauge"){  # Special grouping for Gauge Charts
+    
+    data2plot <- data2plot %>%
+      group_by(year, variable, sample) %>%
+      summarise(
+        values2plot = sum(perc, na.rm = T),
+        .groups = "keep"
+      )
+    
+  } else {
+    
+    data2plot <- data2plot %>%
+      mutate(
+        value = case_when(
+          value %in% c(1,2) ~ "Statement 1",
+          value %in% c(3)   ~ "Neither",
+          value %in% c(4,5) ~ "Statement 2"
+        )
+      ) %>%
+      group_by(year, variable, sample, value) %>%
+      summarise(
+        values2plot = sum(perc, na.rm = T),
+        .groups = "keep"
+      )
+    
+  }
   
   # Calling labelers
   if (parameters["label_var"] == "Variables"){

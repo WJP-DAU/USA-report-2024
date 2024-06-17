@@ -145,6 +145,26 @@ callVisualizer <- function(pid, figure_map, outline){
     )
   }
   
+  if(parameters[["plot_function"]] == "Gauge"){
+    
+    # Standardizing theoretical order for Gauge Charts
+    if (pid %in% c("Figure_12_A", "Figure_12_C")) {
+      factor_order <- c("Statement 1", "Neither", "Statement 2")
+    } else {
+      factor_order <- c("Statement 2", "Neither", "Statement 1")
+    }
+    
+    viz <- wjp_gauge(
+      data         = data,
+      target       = "values2plot",
+      colors       = "value",
+      cvec         = parameters[["color_palette"]],
+      labels       = "labels",
+      factor_order = factor_order,
+      ptheme       = WJP_theme()
+    )
+  }
+  
   # Defining plot dimensions
   if (parameters[["HTML_macro"]] == "singlepanel"){
     h = 183.1106
