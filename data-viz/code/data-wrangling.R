@@ -174,7 +174,28 @@ labelVars <- function(input){
     input == "USA_q21f_G2"  ~ "Election results are transparently available",
     input == "USA_q21j_G2"  ~ "Losing candidates accept the results as legitimate",
     input == "USA_q21j_merge"  ~ "Candidates and parties avoid misinformation",
-
+    
+    # Police - Panel A: Trust and Safety
+    input == "q1d"         ~ "Trust the police",
+    input == "q48a_G2"     ~ "Resolve security problems in  the community",
+    input == "q48b_G2"     ~ "Help them feel safe",
+    input == "q48c_G2"     ~ "Are available to help when needed",
+    input == "q48d_G2"     ~ "Treat all people with respect",
+    
+    # Police - Panel B: Accountability and Due Process
+    input == "q48a_G1"     ~ "Act lawfully",
+    input == "q48b_G1"     ~ "Perform effective and lawful investigations",
+    input == "q48c_G1"     ~ "Respect the rights of suspects",
+    input == "q48d_G1"     ~ "Are held accountable for violating laws",
+    
+    # Police - Panel C: Discrimination
+    input == "q18a" ~ "Socioeconomic status",
+    input == "q18b" ~ "Gender",
+    input == "q18c" ~ "Ethnicity",
+    input == "q18d" ~ "Religion",
+    input == "q18e" ~ "Citizenship status",
+    input == "q18f" ~ "Sexual orientation",
+    
   )
   
   return(output)

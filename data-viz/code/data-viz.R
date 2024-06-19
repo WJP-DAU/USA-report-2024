@@ -145,6 +145,17 @@ callVisualizer <- function(pid, figure_map, outline){
     )
   }
   
+  if(parameters[["plot_function"]] == "Dots"){
+    viz <- wjp_dotsChart(
+      data      = data,
+      target    = "values2plot",
+      grouping  = "sample",
+      labels    = "labels",
+      cvec      = parameters[["color_palette"]],
+      ptheme    = WJP_theme()
+    )
+  }
+  
   if(parameters[["plot_function"]] == "Gauge"){
     
     # Standardizing theoretical order for Gauge Charts
