@@ -46,7 +46,9 @@ p_load(char = c(
 
 viz2import <- c("barsChart.R", 
                 "lineChart.R", 
-                "radarChart.R")
+                "radarChart.R",
+                "gaugeChart.R",
+                "edgebarsChart.R")
 
 for (f in viz2import){
   source(

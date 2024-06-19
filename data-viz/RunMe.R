@@ -40,6 +40,10 @@ master_data <- read_dta(
       year == 2021 & paff3 == "The Republican Party" ~ "Republicans",
       year == 2024 & USA_paff1 == 2 ~ "Democrats",
       year == 2024 & USA_paff1 == 1 ~ "Republicans"
+    ),
+    USA_q21j_merge = case_when(  # USA_q21j_G1 & USA_q21e_G2 are the same
+      !is.na(USA_q21j_G1) ~ USA_q21j_G1,
+      !is.na(USA_q21e_G2) ~ USA_q21e_G2
     )
   ) %>%
   filter(
@@ -71,8 +75,8 @@ data_bank <- DataBank(master_data)
 # Producing data points
 viz_panels <- figure_map %>% 
   filter(
-    type %in% c("Bars", "Lines", "Radar", "Gauge")
-    # type %in% c("Gauge")
+    type %in% c("Bars", "Lines", "Radar", "Gauge", "Edgebars")
+    # type %in% c("Edgebars") # For testing purposes
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels

@@ -26,7 +26,7 @@ study_variables <- c(
   "USA_q18a","USA_q18b","USA_q18c","q43_G2","USA_Regis1","USA_Regis2","USA_midterm",
   "USA_paff3","USA_vote","USA_q21b_G1","USA_q21g_G1","USA_q21d_G2","USA_q21h_G2","USA_q21i_G2","USA_q21a_G1",
   "USA_q21e_G1","USA_q21f_G1","USA_q21h_G1","USA_q21a_G2","USA_q1k","USA_q2h","USA_q21c_G1","USA_q21d_G1",
-  "USA_q21b_G2","USA_q21f_G2","USA_q21g_G2","USA_q21j_G2","USA_q21j_G1","USA_q21c_G2","USA_q21e_G2","USA_q20a",
+  "USA_q21b_G2","USA_q21f_G2","USA_q21g_G2","USA_q21j_G2","USA_q21j_merge","USA_q21c_G2","USA_q20a",
   "USA_q20b","USA_q19a","USA_q19b","USA_q19c","USA_q19d","USA_q19e","USA_q19f","USA_q22a_G2","USA_q22b_G2",
   "USA_q22c_G2","USA_q22d_G2","USA_q22e_G2","USA_q22g","q1i","USA_q29","USA_q25","USA_q26","USA_q28","q50",
   "q51","q52","CAR_q73","CAR_q74","q45a_G1","q45b_G1","q46c_G2","q46f_G2","q46g_G2","q46c_G1","q46e_G2",
@@ -148,6 +148,33 @@ labelVars <- function(input){
     input == "USA_q22e_G2"  ~ "Cases of vote<br>recounts.",
     input == "USA_q22g"     ~ "A contested<br>presidential election.",
     
+    # Electoral Integrity - Panel A: Electoral Process
+    input == "USA_q21b_G2"  ~ "The process prevents fraud",
+    input == "USA_q21g_G1"  ~ "The process is safe from cyberattacks",
+    input == "USA_q21h_G2"  ~ "The process is free of corruption",
+    input == "USA_q21i_G2"  ~ "The process is free from foreign interference",
+    input == "USA_q21c_G2"  ~ "Electoral rules are impartial",
+    
+    # Electoral Integrity - Panel B: Voting rights
+    input == "USA_q21a_G1"  ~ "Ballot secrecy is guaranteed",
+    input == "USA_q21a_G2"  ~ "Voting access is equal for all citizens",
+    input == "USA_q21b_G1"  ~ "People are able to vote conveniently",
+    input == "USA_q21h_G1"  ~ "Political entry barriers are low",
+    
+    # Electoral Integrity - Panel C: Electoral Authorities
+    input == "USA_q21e_G1"  ~ "The electoral authority is impartial and effective",
+    input == "USA_q21f_G1"  ~ "Checks and balances ensure electoral confidence",
+    input == "USA_q1k"      ~ "Election officials are trustworthy",
+    input == "USA_q2h"      ~ "Election officials are free of corruption",
+    input == "USA_q21g_G2"  ~ "Complaint mechanisms are transparent and impartial",
+    
+    # Electoral Integrity - Panel D: Electoral Results and Vote Counting
+    input == "USA_q21c_G1"  ~ "Votes are counted accurately",
+    input == "USA_q21d_G1"  ~ "Monitors can oversee voting and counting",
+    input == "USA_q21f_G2"  ~ "Election results are transparently available",
+    input == "USA_q21j_G2"  ~ "Losing candidates accept the results as legitimate",
+    input == "USA_q21j_merge"  ~ "Candidates and parties avoid misinformation",
+
   )
   
   return(output)

@@ -121,7 +121,7 @@ callVisualizer <- function(pid, figure_map, outline){
       target         = "values2plot",             
       grouping       = "year",
       ngroups        = data$variable,                 
-      labels         = NULL,
+      labels         = "labels",
       colors         = "variable",
       cvec           = parameters[["color_palette"]],
       custom.axis    = T,
@@ -163,6 +163,18 @@ callVisualizer <- function(pid, figure_map, outline){
       factor_order = factor_order,
       ptheme       = WJP_theme()
     )
+  }
+  
+  if(parameters[["plot_function"]] == "Edgebars"){
+    viz <- wjp_edgebars(
+        data         = data,
+        y_value      = "values2plot",
+        x_var        = "variable",
+        label_var    = "labels",
+        y_lab_pos    = 0,
+        bar_color    = parameters[["color_palette"]],
+        margin_top   = 20,
+      )
   }
   
   # Defining plot dimensions
