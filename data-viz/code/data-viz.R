@@ -146,7 +146,7 @@ callVisualizer <- function(pid, figure_map, outline){
   }
   
   if(parameters[["plot_function"]] == "Dots"){
-    viz <- wjp_dotsChart(
+    viz <- wjp_dots(
       data      = data,
       target    = "values2plot",
       grouping  = "sample",
@@ -185,7 +185,27 @@ callVisualizer <- function(pid, figure_map, outline){
         y_lab_pos    = 0,
         bar_color    = parameters[["color_palette"]],
         margin_top   = 20,
+        ptheme       = WJP_theme()
       )
+  }
+  
+  if(parameters[["plot_function"]] == "Dumbbells"){
+    
+    if (pid %in% c("Figure_3_2_B")){
+      r = "sample"
+    } else {
+      r = "labels"
+    }
+    
+    viz <- wjp_dumbbells(
+      data    = data,
+      target  = "values2plot",
+      rows    = r,
+      color   = "year",
+      cgroups = c("2021", "2024"),
+      cvec    = parameters[["color_palette"]],
+      ptheme  = WJP_theme()
+    )
   }
   
   # Defining plot dimensions

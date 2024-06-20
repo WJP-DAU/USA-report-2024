@@ -49,6 +49,7 @@ viz2import <- c("barsChart.R",
                 "radarChart.R",
                 "gaugeChart.R",
                 "dotsChart.R",
+                "dumbbellsChart.R",
                 "edgebarsChart.R")
 
 for (f in viz2import){
