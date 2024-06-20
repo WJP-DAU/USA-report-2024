@@ -50,7 +50,8 @@ viz2import <- c("barsChart.R",
                 "gaugeChart.R",
                 "dotsChart.R",
                 "dumbbellsChart.R",
-                "edgebarsChart.R")
+                "edgebarsChart.R",
+                "slopeChart.R")
 
 for (f in viz2import){
   source(
