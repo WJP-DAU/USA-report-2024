@@ -28,7 +28,7 @@ extractParameters <- function(pid, figure_map, outline){
     c("legend_labels" = "legend_text", 
       "color_codes"   = "legend_color",
       "sample"        = "sample",
-      "chart_id"      = "id",
+      "chart_id"      = "charts",
       "variables"     = "var_id",
       "plot_function" = "type"),
     
