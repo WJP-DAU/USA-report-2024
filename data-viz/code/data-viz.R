@@ -28,7 +28,7 @@ extractParameters <- function(pid, figure_map, outline){
     c("legend_labels" = "legend_text", 
       "color_codes"   = "legend_color",
       "sample"        = "sample",
-      "chart_id"      = "charts",
+      "chart_id"      = "id",
       "variables"     = "var_id",
       "plot_function" = "type"),
     
@@ -62,7 +62,7 @@ extractParameters <- function(pid, figure_map, outline){
   # Extracting macro type
   parameters[["HTML_macro"]] <- outline %>%
     filter(
-      id %in% parameters[["chart_id"]]
+      charts %in% parameters[["chart_id"]]
     ) %>%
     distinct(macro, .keep_all = T) %>%
     pull(macro)
@@ -187,6 +187,20 @@ callVisualizer <- function(pid, figure_map, outline){
         margin_top   = 20,
         ptheme       = WJP_theme()
       )
+  }
+  
+  if(parameters[["plot_function"]] == "Slope"){
+    viz <- wjp_slope(
+        data     = data,
+        target   = "values2plot",
+        grouping = "year",
+        ngroups  = data$sample,
+        colors   = "sample",
+        cvec     = parameters[["color_palette"]],
+        labels   = "labels",
+        repel    = TRUE,
+        ptheme   = WJP_theme()
+    )
   }
   
   if(parameters[["plot_function"]] == "Dumbbells"){

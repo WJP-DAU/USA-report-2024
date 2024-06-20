@@ -26,6 +26,7 @@ library(pacman)
 p_load(char = c(
   # Visualizations
   "showtext", "ggtext", "patchwork", "cowplot", "ggh4x",
+  "ggrepel",
   
   # Data Loading
   "haven", "openxlsx",
