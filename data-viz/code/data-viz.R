@@ -61,8 +61,14 @@ extractParameters <- function(pid, figure_map, outline){
   
   # Extracting macro type
   parameters[["HTML_macro"]] <- outline %>%
+    separate_wider_delim(
+      charts, 
+      names = c("charts1", "charts2"), 
+      delim = ", ", 
+      too_few = "align_start"
+    ) %>%
     filter(
-      charts %in% parameters[["chart_id"]]
+      charts1 %in% parameters[["chart_id"]] | charts2 %in% parameters[["chart_id"]]
     ) %>%
     distinct(macro, .keep_all = T) %>%
     pull(macro)
