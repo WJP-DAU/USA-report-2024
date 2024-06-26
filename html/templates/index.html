@@ -184,6 +184,9 @@
                     {% if macro == "quadpanel" %}
                         {{tf.quadpanel( get_thematic_parameters(id, outline, figure_map) )}}
                     {% endif %}
+                    {% if macro == "pentapanel" %}
+                        {{tf.pentapanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
                  {% endfor %}
 
             </div>

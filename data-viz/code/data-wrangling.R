@@ -83,7 +83,9 @@ DataBank <- function(data) {
             count = n(),
             .groups = "keep"
           ) %>%
-          filter(!is.na(value) & !is.na(sample)) %>%
+          filter(
+            !is.na(value) & !is.na(sample) & !(value %in% c(98, 99))
+          ) %>%
           mutate(
             variable = target
           ) %>%

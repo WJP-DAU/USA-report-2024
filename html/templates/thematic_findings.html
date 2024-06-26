@@ -213,3 +213,58 @@
     {% endif %}
 </section>
 {% endmacro %}
+
+<!-- PENTAPANEL TEMPLATE -->
+{% macro pentapanel(page_data) %}
+{% if page_data.evenPage %}
+<section id="{{page_data.id}}" class="pentapanel">
+{% else %}
+<section id="{{page_data.id}}" class="pentapanel bg-page-gray">
+{% endif %}
+    <div class="container pt-4">
+        {% if page_data.subsection_header != "None" %}
+        <div class="row justify-content-center">
+            <div class="col-md-11 mt-4">
+                <p class="title-p">{{page_data.subsection_header}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% for chart, chart_parameters in page_data.charts.items() %}
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-11 ml-4 bl-purple">
+                <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
+                <p class="fs-20 mb-0"><b>{{chart_parameters.chart_title}}</b></p>
+                <p class="mb-2"><i>{{chart_parameters.chart_subtitle}}</i></p>
+            </div>
+        </div>
+            {% for panel, panel_parameters in chart_parameters.panels.items() %}
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-11 mb-4">
+                    <div class="row">
+                        <div class="col-md-5 mb-4">
+                            <p class="mb-0">
+                                <span class="bullet-square bg-red"></span><span class="text-chart">Legend 1</span>
+                            </p>
+                            <p class="mb-0">
+                                <span class="bullet-square bg-navy"></span><span class="text-chart">Legend 2 </span>
+                            </p>
+                            <p class="mb-0">
+                                <span class="bullet-square bg-gray"></span><span class="text-chart">Legend 3</span>
+                            </p>
+                        </div>
+                        <div class="col-md-7" style="padding-left:75px">
+                            <img src="{{panel_parameters.imgPath}}" class="w-50 img-chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    {% if page_data.evenPage %}
+    <div class="page-number left-number"><b>{{page_data.page}}</b> {{page_data.section_header}}</div>
+    {% else %}
+    <div class="page-number">{{page_data.section_header}} <b>{{page_data.page}}</b></div>
+    {% endif %}
+</section>
+{% endmacro %}

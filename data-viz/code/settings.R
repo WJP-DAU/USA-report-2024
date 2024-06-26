@@ -22,11 +22,15 @@
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+## VERY IMPORTANT ##
+## YOU NEED TO INSTALL THE FOLLOWING PACKAGE: remotes::install_github("yjunechoe/ggtrace")
+## The CRAN ggtrace package is from another author
+
 library(pacman)
 p_load(char = c(
   # Visualizations
   "showtext", "ggtext", "patchwork", "cowplot", "ggh4x",
-  "ggrepel",
+  "ggrepel", "ggtrace",
   
   # Data Loading
   "haven", "openxlsx",

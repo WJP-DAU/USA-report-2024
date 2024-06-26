@@ -251,7 +251,7 @@ callVisualizer <- function(pid, figure_map, outline){
     
   }
   if (parameters[["HTML_macro"]] == "pentapanel"){
-    h = 63.26276
+    h = 40.26276
     w = 63.26276
   }
   if (parameters[["HTML_macro"]] == "hexpanel"){

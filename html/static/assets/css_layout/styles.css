@@ -663,12 +663,6 @@ a[aria-expanded="true"] {
 	.bipanel .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
 	}
-	.pentapanel {
-		padding-bottom: 3rem;
-	}
-	.pentapanel .col-md-11.mb-4:last-child{
-		margin-bottom: 0px !important;
-	}
 
 	#Accountability, #VictimSupport, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
 		padding-bottom: 3rem;
@@ -805,9 +799,6 @@ a[aria-expanded="true"] {
 	}
 	.quadpanel .bullet.bg-blue.ml-4{
 		margin-left: 0px!important;
-	}
-	.pentapanel {
-		padding-bottom: 2rem;
 	}
 	#OtherPublications .col-6{
 		width: 100%;
