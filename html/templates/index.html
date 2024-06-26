@@ -146,6 +146,7 @@
 
             <!-- Beginning of REPORT CONTENT -->
             {% import "general.html" as general %}
+            {% import "thematic_findings.html" as tf %}
             {% import "executive_findings.html" as execfinds %}
             <div id="content">
 
@@ -165,8 +166,27 @@
                 <!-- EXECUTIVE FINDINGS -->
                 {{execfinds.execFindings(dynamic_data["ExecFindings"])}}
 
-            </div>
+                <!-- THEMATIC FINDINGS -->
+                 {% for id, macro in thematic_findings.items() %}
 
+                    {% if macro == "section" %}
+                        {{general.section_page( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                    {% if macro == "singlepanel" %}
+                        {{tf.singlepanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                    {% if macro == "bipanel" %}
+                        {{tf.bipanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                    {% if macro == "tripanel" %}
+                        {{tf.tripanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                    {% if macro == "quadpanel" %}
+                        {{tf.quadpanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                 {% endfor %}
+
+            </div>
         </div>
 
         <a id="ButtonTop" title="Ir arriba" class="btn-top" onClick="clickTop();"><img src="static/assets/images_layout/icnGoTop.svg" style="width: 16px"></a>

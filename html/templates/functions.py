@@ -2,7 +2,7 @@ import re
 import markdown
 from docx import Document
 
-def df2dict(df):
+def df2dict(df, index = "id"):
     """
     Convert a DataFrame to a nested dictionary.
 
@@ -21,7 +21,7 @@ def df2dict(df):
     outcome = (
         df.copy()
         .fillna("None")
-        .set_index("id")
+        .set_index(index)
         .to_dict(orient="index")
     )
     return outcome
@@ -79,6 +79,55 @@ def page_grouping(input):
         page_group.append(page_group)
 
     return page_group
+
+def get_page_data(page_id, outline, figure_map):
+    """
+    Retrieves and organizes data for a specific thematic page, including its sections, charts, and chart panels, from the given 
+    outline and figure map.
+
+    Args:
+        page_id (str): The unique identifier of the page to retrieve data for.
+        outline (pandas.DataFrame): A DataFrame containing metadata and structure information about the pages.
+        figure_map (pandas.DataFrame): A DataFrame containing metadata and details about charts and their panels.
+
+    Returns:
+        dict: A nested dictionary containing the organized data for the specified page, structured into three levels:
+            - Level 1: Basic page information including ID, even/odd page status, subsection headers, and charts.
+            - Level 2: Details about each chart on the page, including ID, title, subtitle, footnotes, notes, and legend information.
+            - Level 3: Detailed information about each panel within each chart, including panel titles, subtitles, and legend information.
+    """
+
+    # Level 1
+    level1_targets = ["id", "page", "evenPage", "section_header", "subsection_header", "charts"]
+    level2_targets = ["id", "chart_title", "chart_subtitle", "footnote", "source", "legend_text", "legend_color"]
+    level3_targets = ["panel", "panel_title", "panel_subtitle", "legend_text", "legend_color"]
+    level1_data    = df2dict(outline.loc[outline["id"] == page_id, level1_targets])
+    level1_data    = level1_data[page_id]
+    level1_data["id"] = page_id
+    level1_data["section_header"] = re.sub(
+        "Section.+: ", "", level1_data["section_header"]
+    )
+
+    # Level 2
+    covered_figures = level1_data["charts"].split(", ")
+    level2_data = df2dict(
+        figure_map.loc[figure_map["id"].isin(covered_figures), level2_targets].drop_duplicates(subset = ["chart_title"])
+    )
+    level1_data["charts"] = level2_data 
+
+    # Level 3
+    for chart in level1_data["charts"].keys():
+        panel_data = (
+            figure_map.loc[figure_map["id"] == chart, level3_targets]
+            .assign(
+                imgPath = lambda df: df.apply(lambda row: f"static/charts_and_images/{chart}/{chart}_{row['panel']}.svg", axis=1)
+            )
+        )
+        level3_data = df2dict(panel_data, index = "panel")
+        level1_data["charts"][chart]["ChartNo"] = chart.replace("Figure_", "Chart ").replace("_", ".")
+        level1_data["charts"][chart]["panels"]  = level3_data
+
+    return level1_data
 
 def load_markdown_file(file_path, box = False):
     """
@@ -194,11 +243,12 @@ def get_dynamic_data(general_info, outline):
         "toc" : (
                 df2dict(
                     outline
-                    .loc[outline["toc"] == True, ["id", "page", "section_header", "subsection_header"]]
+                    .loc[outline["toc"] == True, ["id", "page", "evenPage", "section_header", "subsection_header"]]
                 )
         ),
         "acknowledgements" : {
-            "text" : markdown.markdown(load_markdown_file("text/acknowledgements.md"))
+            "text"     : markdown.markdown(load_markdown_file("text/acknowledgements.md")),
+            "evenPage" : outline.loc[outline["id"] == "Acknowledgements", "evenPage"].iloc[0]
         },
         "aboutReport" : {
             "section_page" : get_section_data("About this Report", outline),
@@ -214,9 +264,18 @@ def get_dynamic_data(general_info, outline):
                 content = process_word("text/Executive_Findings_template.docx"),
                 startingPage = outline.loc[outline["subsection_header"] == "Executive Findings", "page"].iloc[0]
             )
-        ),
-        "thematic_findings" : df2dict(
-            outline.loc[outline["thematic_findings"] == True]
         )
     }   
     return dynamic_data
+
+def get_thematic_parameters(id, outline, figure_map):
+    macro = outline.loc[outline["id"] == id].macro.iloc[0]
+
+    if macro == "section":
+        header     = outline.loc[outline["id"] == id].section_header.iloc[0]
+        parameters = get_section_data(header, outline)
+    
+    if macro in ["singlepanel", "bipanel", "tripanel", "quadpanel"]:
+        parameters = get_page_data(id, outline, figure_map)
+
+    return parameters

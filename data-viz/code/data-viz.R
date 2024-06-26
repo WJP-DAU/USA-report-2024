@@ -211,7 +211,7 @@ callVisualizer <- function(pid, figure_map, outline){
   
   if(parameters[["plot_function"]] == "Dumbbells"){
     
-    if (pid %in% c("Figure_3_2_B")){
+    if (pid %in% c("Figure_3_2_A")){
       r = "sample"
     } else {
       r = "labels"

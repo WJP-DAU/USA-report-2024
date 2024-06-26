@@ -24,7 +24,11 @@
 
 <!-- ACKNOWLEDGMENTS  -->
 {% macro acknowledgements(section_data) %}
+{% if section_data.evenPage %}
+<section id="Acknowledgements" class="pb-5">
+{% else %}
 <section id="Acknowledgements" class="bg-page-gray pb-5">
+{% endif %}
     <div class="container mb-4 pt-5">
         <div class="row justify-content-center">
             <div class="col-md-11 mt-4">
@@ -90,7 +94,11 @@
 
 <!-- TABLE of CONTENTS  -->
 {% macro toc(toc_data) %}
+{% if toc_data.evenPage %}
 <section class="print table-contents">
+{% else %}
+<section class="bg-page-gray print table-contents">
+{% endif %}
     <div class="container">
         <div class="row justify-content-center py-5">
             <div class="col-sm-8 col-md-7 mt-5">
@@ -146,7 +154,11 @@
 
 <!-- ABOUT THIS REPORT -->
 {% macro aboutReport(section_data) %}
+{% if section_data.evenPage %}
+<section id="AboutThisReport">
+{% else %}
 <section id="AboutThisReport" class="bg-page-gray">
+{% endif %}
     <div class="container pt-5">
         <div class="row justify-content-center">
             <div class="col-md-11 mt-4">

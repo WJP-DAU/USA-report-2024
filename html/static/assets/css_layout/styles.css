@@ -657,15 +657,26 @@ a[aria-expanded="true"] {
 	.ExecutiveFindings_general .col-md-12.mb-4 p:last-child{
 		margin-bottom: 0px !important;
 	}
-	#Accountability, #Trust, #VictimSupport, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #AuthoritarianBehavior3, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #Security, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
+	.bipanel .quadpanel {
+		padding-bottom: 3rem;
+	}
+	.bipanel .col-md-11.mb-4:last-child{
+		margin-bottom: 0px !important;
+	}
+	.pentapanel {
+		padding-bottom: 3rem;
+	}
+	.pentapanel .col-md-11.mb-4:last-child{
+		margin-bottom: 0px !important;
+	}
+
+	#Accountability, #VictimSupport, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
 		padding-bottom: 3rem;
 	}
 	#AuthoritarianBehavior2 .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
 	}
-	#AuthoritarianBehavior3 .col-md-11.mb-4:last-child{
-		margin-bottom: 0px !important;
-	}
+	
 	#FundamentalFreedoms4 .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
 	}
@@ -676,9 +687,6 @@ a[aria-expanded="true"] {
 		margin-bottom: 0px !important;
 	}
 	#CrimeVictimization .col-md-11.mb-4:last-child{
-		margin-bottom: 0px !important;
-	}
-	#Security .col-md-11.mb-4:last-child{
 		margin-bottom: 0px !important;
 	}
 	#CriminalJustice2 .col-md-11.mb-4:last-child{
@@ -780,6 +788,27 @@ a[aria-expanded="true"] {
 	.pt-5, .py-5 {
     	padding-top: 2rem!important;
 	}
+	.bipanel .quadpanel {
+		padding-bottom: 2rem;
+	}
+	.bipanel .col-md-11.mb-4{
+		margin-bottom: 0px !important;
+	}
+	.tripanel .row:nth-child(3) .col-md-11 p{
+		width: 260px;
+	}
+	.tripanel .row:nth-child(3) .col-md-11 p .bullet.c-colombia.ml-4{
+		margin-left: 0px!important;
+	}
+	.quadpanel .container .row:nth-child(3) .col-md-11 .row:first-child .col-md-6:nth-child(4) p:nth-child(2){
+		width: 290px;
+	}
+	.quadpanel .bullet.bg-blue.ml-4{
+		margin-left: 0px!important;
+	}
+	.pentapanel {
+		padding-bottom: 2rem;
+	}
 	#OtherPublications .col-6{
 		width: 100%;
 		max-width: 100%;
@@ -848,16 +877,13 @@ a[aria-expanded="true"] {
 	#CrimeVictimization .col-md-11.mb-4{
 		margin-bottom: 0px !important;
 	}
-	#Security .col-md-11.mb-4{
-		margin-bottom: 0px !important;
-	}
 	#CriminalJustice2 .col-md-11.mb-4{
 		margin-bottom: 0px !important;
 	}
 	#Police2 .col-md-11.mb-4{
 		margin-bottom: 0px !important;
 	}
-	#Accountability, #Trust, #VictimSupport, #AccessJusticeJourney, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #AuthoritarianBehavior3, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #Security, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
+	#Accountability, #VictimSupport, #AccessJusticeJourney, #AccessJusticeJourney2, #AdditionalCountries, #AboutThisReport, #AuthoritarianBehavior, #AuthoritarianBehavior2, #FundamentalFreedoms4, #Corruption3, #BriberyVictimization, #CrimeVictimization, #CriminalJustice, #CriminalJustice2, #Police2, #MethodologicalMaterials, #AboutTheWJP{
 		padding-bottom: 2rem;
 	}
 	#AuthoritarianBehavior .row:nth-child(3) .col-md-11 p{
@@ -878,24 +904,14 @@ a[aria-expanded="true"] {
 	#Corruption .bullet.bg-blue.ml-4{
 		margin-left: 0px!important;
 	}
-	#Corruption2 .row:nth-child(3) .col-md-11 p{
-		width: 260px;
-	}
-	#Corruption2 .row:nth-child(3) .col-md-11 p .bullet.c-colombia.ml-4{
-		margin-left: 0px!important;
-	}
 	#Corruption3 .row:nth-child(3) .col-md-11 p{
 		width: 260px;
 	}
 	#Corruption3 .row:nth-child(3) .col-md-11 p .bullet.c-colombia.ml-4{
 		margin-left: 0px!important;
 	}
-	#Trust .container .row:nth-child(3) .col-md-11 .row:first-child .col-md-6:nth-child(4) p:nth-child(2){
-		width: 290px;
-	}
-	#Trust .bullet.bg-blue.ml-4{
-		margin-left: 0px!important;
-	}
+	
+	
 	#CriminalJustice2 .container .row:nth-child(3) .col-md-11 p:first-child{
 		width: 295px;
 	}
@@ -1053,31 +1069,5 @@ iframe#embedMenu{
 	iframe#embedMenu{
 		position: absolute;
 	}
-}
-
-/*** Hiding source notes ****/
-#Police .reference{
-	display: none;
-}
-#AccessJusticeJourney .reference{
-	display: none;
-}
-#FundamentalFreedoms .reference, #FundamentalFreedoms3 .reference{
-	display: none;
-}
-.col-md-6.mb-5.nodis br{
-	display: block;
-}
-.col-md-6.mb-5.pdis br{
-	display: none;
-}
-#BriberyVictimization .reference br, #Corruption2 .reference br, #FundamentalFreedoms4 .reference br{
-	display: none;
-}
-
-/*** Freedoms Key ****/
-.ct5{
-    color: #474A48;
-    font-size: 0.92rem;
 }
 

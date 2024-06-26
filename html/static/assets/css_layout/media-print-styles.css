@@ -1,13 +1,11 @@
 @media print {
 
+	/* GENERAL STYLES */
     @page {
         size: letter portrait;
-		/*size:8.5in 11in;*/
 		margin: 0px;
     }
-
     @page :first {
-     /*margin-right: 0cm;*/
 		margin:0px
     }
 	@page:right{
@@ -15,7 +13,6 @@
 		content: counter(page);
 	  }
 	}
-
 	@page:left{
 	  @bottom-left {
 		content: counter(page);
@@ -34,14 +31,8 @@
 	.back-cover{
 		min-height: 100vh;
 	}
-	section.bg-purple{
-		height: 100%;
-	}
 	.height85vh{
 		height: 100vh;
-	}
-	#AboutTheWJP{
-		min-height: 100vh;
 	}
 	.bg-page-cover {
 		height: 100%;
@@ -50,105 +41,21 @@
 	.bg-page-cover .logo-cover{
 		display: block;
 	}
-
 	.bg-purple a{
 	text-decoration: none;
 	}
 	.btn-top.toTop{
 		display:none;
 	}
-	
 	.bg-data-Acknowledgements.mt-5{
 		margin-top: 8rem !important;
 	}
-	.table-contents{
-		min-height: 100vh;
-	}
-	.table-contents .col-sm-8.col-md-4.mt-5{
-		padding-top:150px !important;
-	}
-	.table-contents p.li em{
-		margin-top: 1.5rem;
-		display: block;
-	}
-	.table-contents p.li b{
-		margin-top: 3rem;
-		display: block;
-	}
-	.table-contents p.li b:first-child{
-		margin-top: 0rem;
-	}
-	.ExecutiveFindings_general {
-		padding-top: 4rem;
-		margin-top: 3rem;
-		height: 34.47cm;
-	}
-	#AboutThisReport, #Authoritarianism, section{
-		height:100vh;
-	}
-	#AboutThisReport .container{
-		margin: 0 auto;
-		padding-top: 15rem !important;
-	}
-	#AboutThisReport .p-quote{
-		width: 90%;
-	}
-	#AdditionalCountries .table-responsive:before {
-		padding: 2px 5px;
-		content: "Swipe left to read more";
-		color: #fff;
-		  background: #888;
-		display: none;
-	  }
-	#DescriptionSample{
-		padding-top: 3rem !important;
-	}
-	#AdditionalCountries{
-		padding-top: 4rem !important;
-	}
-	
 	.hide-number{
 		display: inline-block;
 		line-height: 24px;
 	}				
-	
 	.table td, .table th {
 		background-color: transparent !important;
-	}
-	
-	
-	.table-contents p a {
-		color: #262424;
-		text-decoration: none;
-	}
-	
-	.table-contents p a b{
-		color: #262424;
-		text-decoration: none;
-	}
-	
-	.table-contents p a em{
-		color: #482d8a;
-		text-decoration: none;
-	}
-	#FundamentalFreedoms2{
-		padding-top: 2rem;
-	}
-	#FundamentalFreedoms2 .col-md-6.mb-5.mb-print-none{
-		margin-bottom: 0rem !important;
-	}
-	#FundamentalFreedoms2 .row.justify-content-center.mt-4.foot-note.mt-print-none{
-		margin-top: 2rem !important;
-		height:20px;
-	}
-	#FundamentalFreedoms2 .col-md-6.mb-5{
-		margin-bottom: 2rem !important;
-	}
-	#FundamentalFreedoms4{
-		padding-top: 0.5rem;
-	}
-	#FundamentalFreedoms4 .col-md-6.mb-5{
-		margin-bottom: 2rem !important;
 	}
 	.img-chart{
 		width: 100%;
@@ -172,17 +79,44 @@
 	.size-custom-figure-chart12{
 		max-width: 100%;
 	}
-
-	/**** Ajuste impresion ****/
 	.bg-purple .li{
 		padding-left: 25px !important;
 	}
 	.bg-purple .hide-number{
 		line-height: 32px;
 	}
-	
-	section{
-		position: relative;
+	.hide-print{
+		display: none;
+	}
+	.bg-page-cover{
+		height: 34.47cm;
+	}
+	.text-cover{
+		width: 60.666667%;
+		position: absolute;
+		bottom: 200px;
+		left: 50%;
+		margin-left: -21%;
+	}
+	.ml-4.bl-purple{
+		margin-bottom: 20px;
+	}
+
+	/* FOOTNOTES & PAGINATION */
+	.foot-note{
+		position: absolute;
+		bottom: 80px;
+		left: 60px;
+		width: 95%;
+	}
+	.foot-note p:last-child{
+		margin-bottom:0px;
+	}
+	.foot-note p{
+		line-height: normal;
+	}
+	.nobotton-fnote p{
+		line-height: normal;
 	}
 	.page-number{
 		display:block;
@@ -213,60 +147,26 @@
 		padding-right: 5px;
 	}
 	
-	/*
-	.container, .container-lg, .container-md, .container-sm, .container-xl {
-		max-width: 1100px;
-	}
-	*/
-	#Authoritarianism2, #Authoritarianism3, #FundamentalFreedoms2, #Corruption3{
-		padding-top: 3rem;
-	}
-	#FundamentalFreedoms3, #FundamentalFreedoms4, #FundamentalFreedoms5{
-		padding-top: 2rem;
-	}
-	#Corruption2{
-		padding-top: 2rem;
-	}
-
-	#FundamentalFreedoms2 .img-chart{
-		width: auto;
-		height: 220px;
-	}
-	
-	#Corruption3 .w-90.img-chart{
-		margin-bottom: 2rem;
-	}
-	.hide-print{
-		display: none;
-	}
-	.foot-note{
-		position: absolute;
-		bottom: 80px;
-		left: 60px;
-		width: 95%;
-	}
-	.foot-note p:last-child{
-		margin-bottom:0px;
-	}
-	.foot-note p{
-		line-height: normal;
-	}
-	.nobotton-fnote p{
-		line-height: normal;
-	}
-
-	/***** letter size ******/
-	.bg-page-cover{
+	/* SECTION TAG */
+	section.bg-purple{
 		height: 34.47cm;
 	}
-	.text-cover{
-		width: 60.666667%;
-		position: absolute;
-		bottom: 200px;
-		left: 50%;
-		margin-left: -21%;
+	section.bg-purple .height85vh {
+		height: 118vh;
 	}
-	/* Acknowledgements page 2 */
+	section.bg-purple .justify-content-center .col-md-4 {
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	section.bg-page-gray{
+		height: 34.47cm;
+	}
+	section{
+		position: relative;
+	}
+
+	/* Acknowledgements */
 	.container-fluid.mt-5.mb-5.bg-data-Acknowledgements{
 		margin-top: 0rem !important;
 		margin-bottom: 0rem !important;
@@ -286,6 +186,38 @@
 	.bg-data-Acknowledgements a.link-phone, .bg-data-Acknowledgements a{
 		text-decoration: none;
 	}
+
+	/* TABLE OF CONTENTS */
+	.table-contents{
+		min-height: 100vh;
+		height: 34.47cm !important;
+	}
+	.table-contents .col-sm-8.col-md-4.mt-5{
+		padding-top:150px !important;
+	}
+	.table-contents p.li em{
+		margin-top: 1.5rem;
+		display: block;
+	}
+	.table-contents p.li b{
+		margin-top: 3rem;
+		display: block;
+	}
+	.table-contents p.li b:first-child{
+		margin-top: 0rem;
+	}
+	.table-contents p a {
+		color: #262424;
+		text-decoration: none;
+	}
+	.table-contents p a b{
+		color: #262424;
+		text-decoration: none;
+	}
+	.table-contents p a em{
+		color: #482d8a;
+		text-decoration: none;
+	}
 	.table-contents .col-sm-8.col-md-4.mt-5 {
 		padding-top: 40px !important;
 	}
@@ -294,29 +226,12 @@
 		flex: 0 0 35.333333%;
 		max-width: 35.333333%;
 	}
-	section.bg-purple{
-		height: 34.465cm;
-	}
-	section.bg-purple .height85vh {
-		height: 118vh;
-	}
-	section.bg-purple .justify-content-center .col-md-4 {
-		-ms-flex: 0 0 33.333333%;
-		flex: 0 0 33.333333%;
-		max-width: 33.333333%;
-	}
-	section.bg-page-gray{
-		height: 34.47cm;
-	}
-	.ml-4.bl-purple{
-		margin-bottom: 20px;
-	}
-	/* About This Report page 5 */
-	#AboutThisReport, #SpecialNote{
-		height: 34.47cm;
-	}
-	#AboutThisReport .container.pt-5, #SpecialNote .container.pt-5{
-		padding-top: 120px !important;
+
+	/* EXECUTIVE FINDINGS */
+	.ExecutiveFindings_general {
+		padding-top: 4rem !important;
+		margin-top: 3rem;
+		height: 34.47cm !important;
 	}
 	.ExecutiveFindings_general p, #SpecialNote p, .ExecutiveFindings_general p{
 		line-height: 1.4;
@@ -328,6 +243,223 @@
 	}
 	.ExecutiveFindings_general p.title-p, #SpecialNote p.title-p{
 		font-size: 30px;
+	}
+
+	/* ABOUT THIS REPORT */
+	#AboutThisReport {
+		height: 34.47cm !important;
+	}
+	#AboutThisReport .container{
+		margin: 0 auto;
+		padding-top: 15rem !important;
+	}
+	#AboutThisReport .p-quote{
+		width: 90%;
+	}
+	
+	/* BIPANEL */
+	.bipanel {
+		height: 34.47cm;
+	}
+	.bipanel .img-chart{
+		width: 80%;
+	}
+
+	/* TRIPANEL */
+	.tripanel {
+		height: 34.47cm;
+	}
+	.tripanel .img-chart{
+		width: 85%;
+		padding-top: 2rem;
+	}
+	.tripanel .row.justify-content-center.mt-4{
+		margin-top: 0rem !important;
+	}
+	.tripanel p.mb-4{
+		margin-bottom: 0.5rem !important;
+	}
+	.tripanel .justify-content-center .col-md-11.mb-5{
+		margin-bottom: 2rem !important;
+	}
+	.tripanel .justify-content-center:nth-child(3){
+		margin-bottom: 15px !important;
+	}
+
+	/* QUADPANEL */
+	.quadpanel{
+		height: 34.47cm;
+	}
+	.quadpanel .col-md-6 {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.quadpanel .img-chart{
+		width: 85%;
+	}
+	.quadpanel .container .row:nth-child(3) .col-md-11 .row:first-child .col-md-6:nth-child(4) p:nth-child(2){
+		width: 290px;
+	}
+	.quadpanel .bullet.bg-blue.ml-4{
+		margin-left: 0px!important;
+	}
+
+	/* PENTAPANEL */
+	.pentapanel {
+		height: 34.47cm;
+		padding-top: 3rem;
+	}
+	.pentapanel .container.pt-4{
+		padding-top: 0rem !important;
+	}
+	.pentapanel .col-md-5 {
+		-ms-flex: 0 0 41.666667%;
+		flex: 0 0 41.666667%;
+		max-width: 41.666667%;
+	}
+	.pentapanel .col-md-7 {
+		-ms-flex: 0 0 58.333333%;
+		flex: 0 0 58.333333%;
+		max-width: 58.333333%;
+	}
+	.pentapanel .row.justify-content-center.mt-5{
+		margin-top: 0rem !important;
+	}
+	.pentapanel .text-chart{
+		font-size: 0.9rem;
+	}
+	.pentapanel .w-90.img-chart{
+		width: 85%;
+	}
+
+	/* ABOUT THE WJP */
+	#AboutTheWJP{
+		min-height: 100vh;
+	}
+
+	/* IFRAME & BREADCRUMB */
+	#invoice{
+		display: flex;
+		margin: auto;
+	}
+	#root{margin-top:0;}
+	#embedMenu{display:none !important;}
+	.breadcrumb-content{display:none;}
+
+	/* WEBKIT */
+	_::-webkit-full-page-media, _:future, :root body{
+		font-size:15px;
+	}
+	_::-webkit-full-page-media, _:future, :root .bg-page-cover{
+		background: url('../images_layout/pict2.jpg') center center no-repeat;
+  		background-size:cover;
+		min-height: 31.5cm;
+		print-color-adjust:exact;
+		-webkit-print-color-adjust:exact;
+	}
+	_::-webkit-full-page-media, _:future, :root .text-cover{
+			height:calc(100vh - 10px) !important;
+	}
+	_::-webkit-full-page-media, _:future, :root .bg-page-gray.pb-5{
+		padding-bottom: 1rem!important;
+	}
+	_::-webkit-full-page-media, _:future, :root .container.pt-5{
+		padding-top: 1rem!important;
+	}
+	_::-webkit-full-page-media, _:future, :root .data-Acknowledgements.p-5{
+		padding: 2rem 3rem 1rem!important;
+	}
+	_::-webkit-full-page-media, _:future, :root .bg-data-Acknowledgements.mt-5{
+		margin-top: 3rem !important;
+	}
+	_::-webkit-full-page-media, _:future, :root .table-contents{
+		margin-top: -50px;
+		background: #fff;
+	}
+	_::-webkit-full-page-media, _:future, :root .table-contents .col-sm-8.col-md-4.mt-5{
+		padding-top:50px !important;
+	}
+	_::-webkit-full-page-media, _:future, :root #About{
+		min-height: 31.5cm;
+	}
+	_::-webkit-full-page-media, _:future, :root #About .row.align-items-center.h-100{
+		height: 27cm !important;
+	}
+	_::-webkit-full-page-media, _:future, :root #AboutThisReport{
+		min-height: 31.5cm;
+	}
+	_::-webkit-full-page-media, _:future, :root #ExecutiveFindings{
+		font-size:14px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	#AdditionalCountries .table-responsive:before {
+		padding: 2px 5px;
+		content: "Swipe left to read more";
+		color: #fff;
+		  background: #888;
+		display: none;
+	  }
+	#DescriptionSample{
+		padding-top: 3rem !important;
+	}
+	#AdditionalCountries{
+		padding-top: 4rem !important;
+	}
+	
+	#FundamentalFreedoms2{
+		padding-top: 2rem;
+	}
+	#FundamentalFreedoms2 .col-md-6.mb-5.mb-print-none{
+		margin-bottom: 0rem !important;
+	}
+	#FundamentalFreedoms2 .row.justify-content-center.mt-4.foot-note.mt-print-none{
+		margin-top: 2rem !important;
+		height:20px;
+	}
+	#FundamentalFreedoms2 .col-md-6.mb-5{
+		margin-bottom: 2rem !important;
+	}
+	#FundamentalFreedoms4{
+		padding-top: 0.5rem;
+	}
+	#FundamentalFreedoms4 .col-md-6.mb-5{
+		margin-bottom: 2rem !important;
+	}
+	#Authoritarianism2,  #FundamentalFreedoms2, #Corruption3{
+		padding-top: 3rem;
+	}
+	#FundamentalFreedoms3, #FundamentalFreedoms4, #FundamentalFreedoms5{
+		padding-top: 2rem;
+	}
+	
+	#FundamentalFreedoms2 .img-chart{
+		width: auto;
+		height: 220px;
+	}
+	#Corruption3 .w-90.img-chart{
+		margin-bottom: 2rem;
+	}
+
+	/***** letter size ******/
+	
+	/* About This Report page 5 */
+	#AboutThisReport, #SpecialNote{
+		height: 34.47cm;
+	}
+	#AboutThisReport .container.pt-5, #SpecialNote .container.pt-5{
+		padding-top: 120px !important;
 	}
 	/* AUTHORITARIANISM chart1 page 10 */
 	#Authoritarianism{
@@ -371,31 +503,7 @@
 		width: 85%;
 	}
 	/* chart 3 page 12 */
-	#Authoritarianism3{
-		height: 34.47cm;
-	}
-	#Authoritarianism3 .container.pt-4{
-		padding-top: 0rem !important;
-	}
-	#Authoritarianism3 .col-md-5 {
-		-ms-flex: 0 0 41.666667%;
-		flex: 0 0 41.666667%;
-		max-width: 41.666667%;
-	}
-	#Authoritarianism3 .col-md-7 {
-		-ms-flex: 0 0 58.333333%;
-		flex: 0 0 58.333333%;
-		max-width: 58.333333%;
-	}
-	#Authoritarianism3 .row.justify-content-center.mt-5{
-		margin-top: 0rem !important;
-	}
-	#Authoritarianism3 .text-chart{
-		font-size: 0.9rem;
-	}
-	#Authoritarianism3 .w-90.img-chart{
-		width: 85%;
-	}
+	
 	/* FUNDAMENTAL FREEDOMS chart 4 page 13 */
 	#FundamentalFreedoms{
 		height: 34.47cm;
@@ -506,25 +614,7 @@
 	#Corruption .bullet.bg-blue.ml-4{
 		margin-left: 0px!important;
 	}
-	/* chart 8 page 20 */
-	#Corruption2{
-		height: 34.47cm;
-	}
-	#Corruption2 .img-chart{
-		width: 85%;
-	}
-	#Corruption2 .row.justify-content-center.mt-4{
-		margin-top: 0rem !important;
-	}
-	#Corruption2 p.mb-4{
-		margin-bottom: 0.5rem !important;
-	}
-	#Corruption2 .justify-content-center .col-md-11.mb-5{
-		margin-bottom: 2rem !important;
-	}
-	#Corruption2 .justify-content-center:nth-child(3){
-		margin-bottom: 15px !important;
-	}
+	
 	
 	/* chart 9 page 21 */
 	#Corruption3 .img-chart{
@@ -542,25 +632,7 @@
 	#BriberyVictimization .img-chart{
 		width: 80%;
 	}
-	/* TRUST chart 11 page 23 */
-	#Trust{
-		height: 34.47cm;
-	}
-	#Trust .col-md-6 {
-		-ms-flex: 0 0 50%;
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
-	#Trust .img-chart{
-		width: 85%;
-	}
-	#Trust .container .row:nth-child(3) .col-md-11 .row:first-child .col-md-6:nth-child(4) p:nth-child(2){
-		width: 290px;
-	}
-	#Trust .bullet.bg-blue.ml-4{
-		margin-left: 0px!important;
-	}
-
+	
 	/* TRUST2 chart 11 page 23 */
 	#Trust2{
 		height: 34.47cm;
@@ -580,13 +652,7 @@
 	#CrimeVictimization .w-90.img-chart {
 		width: 80%;
 	}
-	/* SECURITY chart 13 page 26 */
-	#Security{
-		height: 34.47cm;
-	}
-	#Security .img-chart{
-		width: 80%;
-	}
+	
 	/* CRIMINAL JUSTICE chart 14 page 27 */
 	#CriminalJustice{
 		height: 34.47cm;
@@ -783,51 +849,11 @@
 	.ml-4.bl-purple{
 		margin-left: 0.9rem!important;
 	}
-	
-	/*** iframe menu migaja ****/
-	#invoice{
-		display: flex;
-		margin: auto;
-	}
-	#root{margin-top:0;}
-	#embedMenu{display:none !important;}
-	.breadcrumb-content{display:none;}
-	
-	/*** ajustes source text migration ****/
-	.equal-height{
-		min-height: 490px;
-	}
-	.equal-height br{
-		display: none;
-	}
 
-	/*** Showing source notes ****/
-	#Police .reference{
-		display: block;
-	}
-	#AccessJusticeJourney .reference{
-		display: block;
-	}
-	#FundamentalFreedoms .reference, #FundamentalFreedoms3 .reference{
-		display: block;
-	}
-	.col-md-6.mb-5.nodis br{
-		display: none;
-	}
-	.col-md-6.mb-5.pdis br{
-		display: block !important;
-	}
-	#BriberyVictimization .reference br, #Corruption2 .reference br, #FundamentalFreedoms4 .reference br{
-		display: block;
-	}
-	#FundamentalFreedoms4 .reference.mb-0 {
-		margin-bottom: -40px !important;
-		line-height: 18px;
-	}
-	#FundamentalFreedoms4 .reference.mb-2 {
-		margin-top: 25px !important;
-		line-height: 18px;
-	}
+	
+	
+	
+	
 
 }
 
