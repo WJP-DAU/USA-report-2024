@@ -109,19 +109,19 @@
                         </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a class="btn-level2 menuOpt" href="#SectionI"><span>Section I: Authoritarianism, Fundamental Freedoms, and Accountability</span></a>
+                                <a class="btn-level2 menuOpt" href="#SectionI"><span>Section I: Rule of Law and Government Accountability</span></a>
                                 <a class="btn-level2 link-collapse" href="#SectionI">I</a>
                             </li>
                             <li>
-                                <a class="btn-level2 menuOpt" href="#SectionII"><span>Section II: Corruption and Trust</span></a>
+                                <a class="btn-level2 menuOpt" href="#SectionII"><span>Section II: Elections and News Consumption</span></a>
                                 <a class="btn-level2 link-collapse" href="#SectionII">II</a>
                             </li>
                             <li>
-                                <a class="btn-level2 menuOpt" href="#SectionIII"><span>Section III: Security and Criminal Justice</span></a>
+                                <a class="btn-level2 menuOpt" href="#SectionIII"><span>Section III: Authoritarianism and Fundamental Freedoms</span></a>
                                 <a class="btn-level2 link-collapse" href="#SectionIII">III</a>
                             </li>
                             <li>
-                                <a class="btn-level2 menuOpt" href="#SectionIV"><span>Section IV: Discrimination</span></a>
+                                <a class="btn-level2 menuOpt" href="#SectionIV"><span>Section IV: Corruption and Trust</span></a>
                                 <a class="btn-level2 link-collapse" href="#SectionIV">IV</a>
                             </li>
                         </ul>
@@ -186,6 +186,9 @@
                     {% endif %}
                     {% if macro == "pentapanel" %}
                         {{tf.pentapanel( get_thematic_parameters(id, outline, figure_map) )}}
+                    {% endif %}
+                    {% if macro == "hexpanel" %}
+                        {{tf.hexpanel( get_thematic_parameters(id, outline, figure_map) )}}
                     {% endif %}
                  {% endfor %}
 

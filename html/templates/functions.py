@@ -275,7 +275,7 @@ def get_thematic_parameters(id, outline, figure_map):
         header     = outline.loc[outline["id"] == id].section_header.iloc[0]
         parameters = get_section_data(header, outline)
     
-    if macro in ["singlepanel", "bipanel", "tripanel", "quadpanel", "pentapanel"]:
+    if macro in ["singlepanel", "bipanel", "tripanel", "quadpanel", "pentapanel", "hexpanel"]:
         parameters = get_page_data(id, outline, figure_map)
 
     return parameters
