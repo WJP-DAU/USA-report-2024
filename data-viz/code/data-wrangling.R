@@ -264,8 +264,14 @@ getDataPoints <- function(pid, figure_map){
       )
   }
   
-  # Aggregation
-  if (parameters["type"] != "Gauge"){  # Special grouping for Gauge Charts
+  if (parameters[["type"]] == "Dots") {
+    data2plot <- data2plot %>%
+      group_by(year, variable, sample) %>%
+      summarise(
+        values2plot = sum(perc, na.rm = TRUE),
+        total = first(total),
+        .groups = "keep"
+      )} else if (parameters["type"] != "Gauge"){  # Special grouping for Gauge Charts
     
     data2plot <- data2plot %>%
       group_by(year, variable, sample) %>%

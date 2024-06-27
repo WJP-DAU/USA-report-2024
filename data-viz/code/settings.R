@@ -77,8 +77,8 @@ if (Sys.info()["user"] == "ctoruno") {
   path2SP <- "/Users/ctoruno/OneDrive - World Justice Project"
 
 }
-if (Sys.info()["user"] == "nclapacs"){
-  path2SP <- "C:/Users/nclapacs/OneDrive - World Justice Project"
+if (Sys.info()["user"] == "icoddington"){
+  path2SP <- "C:/Users/icoddington/OneDrive - World Justice Project"
 }
 path2main <- file.path(
   path2SP, "Data Analytics/6. Country Reports/USA-report-2024",

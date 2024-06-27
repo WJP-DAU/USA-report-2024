@@ -155,6 +155,7 @@ callVisualizer <- function(pid, figure_map, outline){
     viz <- wjp_dots(
       data      = data,
       target    = "values2plot",
+      sample_size = "total",
       grouping  = "sample",
       labels    = "labels",
       cvec      = parameters[["color_palette"]],
