@@ -33,7 +33,8 @@ study_variables <- c(
   "q46d_G2","q46f_G1","q46a_G2","q46d_G1","q46e_G1","q46h_G2","q2a","q2d","q2b","q2c","q2e","q2f","q2g",
   "q1a","q1d","q1b","q1c","q1e","q1f","q1g","q48a_G2","q48b_G2","q48c_G2","q48d_G2","q48a_G1","q48b_G1",
   "q48c_G1","q48d_G1","q18a","q18b","q18c","q18d","q18e","q18f","q48e_G2","q48f_G2","q48g_G2","q48e_G1",
-  "q48f_G1","q48g_G1", "q48h_G1"
+  "q48f_G1","q48g_G1", "q48h_G1", "USA_q22a_G1", "USA_q22b_G1", "USA_q22c_G1", "USA_q22d_G1", "USA_q22e_G1",
+  "q45c_G1"
 )
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -269,25 +270,27 @@ getDataPoints <- function(pid, figure_map){
       group_by(year, variable, sample) %>%
       summarise(
         values2plot = sum(perc, na.rm = TRUE),
-        total = first(total),
-        .groups = "keep"
-      )} else if (parameters["type"] != "Gauge"){  # Special grouping for Gauge Charts
-    
-    data2plot <- data2plot %>%
-      group_by(year, variable, sample) %>%
-      summarise(
-        values2plot = sum(perc, na.rm = T),
+        total   = first(total),
         .groups = "keep"
       )
+  }
+  
+  if (parameters[["type"]] == "Gauge"){  # Special grouping for Gauge Charts
     
-  } else {
+    if (parameters["target_vars"] %in% c("q52")) {
+      positive_statement <- c(1,2)
+      negative_statement <- c(3,4)
+    } else {
+      positive_statement <- c(3,4)
+      negative_statement <- c(1,2)
+    }
     
     data2plot <- data2plot %>%
       mutate(
         value = case_when(
-          value %in% c(1,2) ~ "Statement 1",
-          value %in% c(3)   ~ "Neither",
-          value %in% c(4,5) ~ "Statement 2"
+          value %in% positive_statement ~ "Positive Statement",
+          value %in% c(5)               ~ "Neither",
+          value %in% negative_statement ~ "Negative Statement"
         )
       ) %>%
       group_by(year, variable, sample, value) %>%
@@ -295,7 +298,22 @@ getDataPoints <- function(pid, figure_map){
         values2plot = sum(perc, na.rm = T),
         .groups = "keep"
       )
-    
+  }
+  
+  if (!parameters[["type"]] %in% c("Dots", "Gauge")){
+    data2plot <- data2plot %>%
+      group_by(year, variable, sample) %>%
+      summarise(
+        values2plot = sum(perc, na.rm = T),
+        .groups = "keep"
+      )
+  }
+  
+  if (parameters[["type"]] == "Bars"){
+    data2plot <- data2plot %>%
+      mutate(
+        label_position = values2plot + 3
+      )
   }
   
   # Calling labelers
@@ -309,22 +327,46 @@ getDataPoints <- function(pid, figure_map){
     if (parameters["type"] == "Radar"){
       data2plot <- data2plot %>%
         mutate(
+          democrat_value   = if_else(sample == "Democrats", values2plot, NA_real_),
+          republican_value = if_else(sample == "Republicans", values2plot, NA_real_)
+        ) %>%
+        group_by(variable) %>%
+        mutate(
+          democrat_value   = first(democrat_value, na_rm = T),
+          republican_value = first(republican_value, na_rm = T),
+          across(
+            ends_with("_value"),
+            ~paste0(
+              format(
+                round(.x, 0),
+                nsmall = 0
+              ),
+              "%"
+            )
+          ),
           across(labels,
-                 ~paste0("<span style='color:#524F4C;font-size:3.514598mm;font-weight:bold'>",
-                         labels,
-                         "</span>"))
+                 ~paste0(
+                   "<span style='color:#003b8a;font-size:4.217518mm'>",democrat_value,"</span>",
+                   "<span style='color:#524F4C;font-size:4.217518mm'> | </span>",
+                   "<span style='color:#fa4d57;font-size:4.217518mm'>",republican_value,"</span><br>",
+                   "<span style='color:#524F4C;font-size:3.514598mm;font-weight:bold'>",
+                   labels,
+                   "</span>"
+                 )
+          )
+        ) %>% 
+        group_by(year, sample) %>%
+        mutate(
+          order = row_number()
         )
     }
-    
-  } else if (parameters["label_var"] == "Values"){
+  }
+  
+  if (parameters["label_var"] == "Values"){
     data2plot <- data2plot %>%
       mutate(
         labels = labelVals(values2plot)
       )
-    
-    
-  } else {
-    data2plot <- data2plot
   }
   
   return(data2plot)

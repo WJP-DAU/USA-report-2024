@@ -16,7 +16,8 @@ outline = (
 figure_map   = pd.read_excel("../report_outline.xlsx", sheet_name = "figure_map")
 figure_map   = (
     figure_map
-    .loc[(figure_map["id"] != "Figure_6") | (figure_map["panel"] != "D")]       # 4th panel is too big. On hold for the moment
+    .loc[(figure_map["id"] != "Figure_2") | (figure_map["panel"] != "B")]
+    .loc[(figure_map["id"] != "Figure_2") | (figure_map["panel"] != "C")]
 )
 dynamic_data = functions.get_dynamic_data(general_info, outline)
 thematic_findings = dict(

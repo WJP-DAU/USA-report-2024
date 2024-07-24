@@ -44,6 +44,10 @@ master_data <- read_dta(
     USA_q21j_merge = case_when(  # USA_q21j_G1 & USA_q21e_G2 are the same
       !is.na(USA_q21j_G1) ~ USA_q21j_G1,
       !is.na(USA_q21e_G2) ~ USA_q21e_G2
+    ),
+    ethnicity_binary = case_when(
+      str_detect(ethni, "hite") ~ "White",
+      str_detect(ethni, "frican|sian|merican|lack|ispanic|atino|iddle|race|ative|Other") ~ "Other"
     )
   ) %>%
   filter(
@@ -57,7 +61,14 @@ figure_map <- read.xlsx("../report_outline.xlsx", sheet = "figure_map") %>%
     panelID = paste(id, panel, sep = "_")
   ) %>%
   relocate(panelID)
-outline <- read.xlsx("../report_outline.xlsx", sheet = "outline") 
+outline <- read.xlsx("../report_outline.xlsx", sheet = "outline") %>%
+  mutate(
+    macro = if_else( # For visualization purposes, these charts will have a different dimention
+      id %in% c("Figure_1_2", "Figure_12"),
+      "tripanel",
+      macro
+    )
+  )
 
 # Cleaning outputs
 outputsReset(figure_map)
@@ -76,7 +87,7 @@ data_bank <- DataBank(master_data)
 viz_panels <- figure_map %>% 
   filter(
     type %in% c("Bars", "Lines", "Radar", "Gauge", "Dots", "Edgebars", "Dumbbells", "Slope")
-    # type %in% c("Gauge") # For testing purposes
+    # type %in% c("Radar") # For testing purposes
   ) %>%
   pull(panelID)
 names(viz_panels) <- viz_panels
@@ -87,7 +98,7 @@ data_points <- lapply(
 )
 
 # Saving data points
-write.xlsx(data_points, "outputs/data_points.csv")
+write.xlsx(data_points, "outputs/data_points.xlsx")
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -103,3 +114,12 @@ data_plots <- lapply(
   figure_map = figure_map,
   outline    = outline
 )
+
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+##
+## 3.  Data for Dash App                                                                                    ----
+##
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# source("code/data4dashboard.R")
+# get_data4dash()

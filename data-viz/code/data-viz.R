@@ -21,9 +21,10 @@
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Extarct Viz Parameters function
 extractParameters <- function(pid, figure_map, outline){
   
-  # Extracting parameters
+  # Extracting general parameters
   parameters <- lapply(
     c("legend_labels" = "legend_text", 
       "color_codes"   = "legend_color",
@@ -53,9 +54,11 @@ extractParameters <- function(pid, figure_map, outline){
     names(parameters[["color_palette"]]) <- parameters[["legend_labels"]]
   }
   
-  if (pid %in% c("Figure_17_C", "Figure_17_D",
-                 "Figure_19_C", "Figure_19_D",
-                 "Figure_23_A", "Figure_23_B", "Figure_23_C")){
+  if (pid %in% c(
+    # "Figure_17_C", "Figure_17_D",                # Corruption over time (NO LONGER IN OUTLINE)
+    "Figure_7_C", "Figure_7_D"                     # Trust over time
+    # "Figure_23_A", "Figure_23_B", "Figure_23_C"  # Criminal Justice Actors (NO LONGER IN OUTLINE)
+  )){
     names(parameters[["color_palette"]]) <- parameters[["variables"]]
   }
   
@@ -72,11 +75,17 @@ extractParameters <- function(pid, figure_map, outline){
     ) %>%
     distinct(macro, .keep_all = T) %>%
     pull(macro)
+  
+  # Manually modifying the HTML macro for bars, these will have a different dimension for visualization purposes
+  # Design will used them as inputs for creating a single panel infographic
+  if (parameters[["chart_id"]] %in% c("Figure_2", "Figure_12")){
+    parameters[["HTML_macro"]] == "tripanel"
+  }
     
   return(parameters)
 }
 
-
+# Saving function
 saveIT.fn <- function(chart, fig, pid, w, h) {
   ggsave(plot   = chart,
          file   = file.path(path2main, 
@@ -90,8 +99,6 @@ saveIT.fn <- function(chart, fig, pid, w, h) {
          dpi    = 72,
          device = "svg")
 } 
-
-
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -111,7 +118,9 @@ callVisualizer <- function(pid, figure_map, outline){
   # Calling visualizer
   if(parameters[["plot_function"]] == "Bars"){
     viz <- wjp_bars(
-      data       = data,              
+      data       = data,     
+      labels     = "labels",
+      lab_pos    = "label_position", 
       target     = "values2plot",        
       grouping   = "sample",      
       colors     = "sample",        
@@ -145,6 +154,7 @@ callVisualizer <- function(pid, figure_map, outline){
       axis_var   = "variable",
       target_var = "values2plot",
       label_var  = "labels",
+      order_var  = "order",
       color_var  = "sample",
       colors     = parameters[["color_palette"]],
       maincat    = "Democrats"
@@ -153,25 +163,20 @@ callVisualizer <- function(pid, figure_map, outline){
   
   if(parameters[["plot_function"]] == "Dots"){
     viz <- wjp_dots(
-      data      = data,
-      target    = "values2plot",
+      data        = data,
+      target      = "values2plot",
       sample_size = "total",
-      grouping  = "sample",
-      labels    = "labels",
-      cvec      = parameters[["color_palette"]],
-      ptheme    = WJP_theme()
+      grouping    = "sample",
+      labels      = "labels",
+      cvec        = parameters[["color_palette"]],
+      ptheme      = WJP_theme()
     )
   }
   
   if(parameters[["plot_function"]] == "Gauge"){
     
     # Standardizing theoretical order for Gauge Charts
-    if (pid %in% c("Figure_12_A", "Figure_12_C")) {
-      factor_order <- c("Statement 1", "Neither", "Statement 2")
-    } else {
-      factor_order <- c("Statement 2", "Neither", "Statement 1")
-    }
-    
+    factor_order <- c("Positive Statement", "Neither", "Negative Statement")
     viz <- wjp_gauge(
       data         = data,
       target       = "values2plot",
@@ -182,16 +187,18 @@ callVisualizer <- function(pid, figure_map, outline){
       ptheme       = WJP_theme()
     )
   }
-  
+    
   if(parameters[["plot_function"]] == "Edgebars"){
     viz <- wjp_edgebars(
         data         = data,
         y_value      = "values2plot",
         x_var        = "variable",
         label_var    = "labels",
-        y_lab_pos    = 0,
-        bar_color    = parameters[["color_palette"]],
-        margin_top   = 20,
+        color_var    = "sample",
+        nudge_lab    = 4.5,
+        bar_colors   = parameters[["color_palette"]],
+        margin_top   = 15,
+        bar_width    = 0.5,
         ptheme       = WJP_theme()
       )
   }

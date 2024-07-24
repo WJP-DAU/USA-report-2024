@@ -18,19 +18,20 @@
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ##
-## 0.  Required packages                                                                                    ----
+## 1.  Required packages                                                                                    ----
 ##
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-## VERY IMPORTANT ##
-## YOU NEED TO INSTALL THE FOLLOWING PACKAGE: remotes::install_github("yjunechoe/ggtrace")
-## The CRAN ggtrace package is from another author
+## VERY IMPORTANT !!
+## YOU NEED TO INSTALL THE FOLLOWING PACKAGES: 
+## (1) remotes::install_github("yjunechoe/ggtrace") The CRAN ggtrace package is from another author
+## (2) remotes::install_github("ctoruno/WJPr")
 
 library(pacman)
 p_load(char = c(
   # Visualizations
   "showtext", "ggtext", "patchwork", "cowplot", "ggh4x",
-  "ggrepel", "ggtrace",
+  "ggrepel", "ggtrace", "WJPr",
   
   # Data Loading
   "haven", "openxlsx",
@@ -42,29 +43,6 @@ p_load(char = c(
   "tidyverse"
   
 ))
-
-## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-##
-## 1.  Required Viz Functions                                                                               ----
-##
-## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-viz2import <- c("barsChart.R", 
-                "lineChart.R", 
-                "radarChart.R",
-                "gaugeChart.R",
-                "dotsChart.R",
-                "dumbbellsChart.R",
-                "edgebarsChart.R",
-                "slopeChart.R")
-
-for (f in viz2import){
-  source(
-    paste0(
-      "https://raw.githubusercontent.com/ctoruno/WJPr/main/R/", f
-    )
-  )
-}
 
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

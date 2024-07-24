@@ -98,7 +98,7 @@ def get_page_data(page_id, outline, figure_map):
     """
 
     # Level 1
-    level1_targets = ["id", "page", "evenPage", "section_header", "subsection_header", "charts"]
+    level1_targets = ["id", "page", "evenPage", "section_header", "subsection_header", "charts", "has_subsection", "legend"]
     level2_targets = ["id", "chart_title", "chart_subtitle", "footnote", "source", "legend_text", "legend_color"]
     level3_targets = ["panel", "panel_title", "panel_subtitle", "legend_text", "legend_color"]
     level1_data    = df2dict(outline.loc[outline["id"] == page_id, level1_targets])
@@ -113,6 +113,20 @@ def get_page_data(page_id, outline, figure_map):
     level2_data = df2dict(
         figure_map.loc[figure_map["id"].isin(covered_figures), level2_targets].drop_duplicates(subset = ["chart_title"])
     )
+    for chart, data in level2_data.items():
+        if "None" not in data["legend_text"]:
+            data.update(
+                {
+                    "legend": dict(zip(
+                        data["legend_text"].split(","),
+                        data["legend_color"].split(",")
+                    ))
+                }
+            )
+        else:
+            data.update(
+                {"legend": "None"}
+            )
     level1_data["charts"] = level2_data 
 
     # Level 3
@@ -124,6 +138,20 @@ def get_page_data(page_id, outline, figure_map):
             )
         )
         level3_data = df2dict(panel_data, index = "panel")
+        for panel, data in level3_data.items():
+            if "None" not in data["legend_text"]:
+                data.update(
+                    {
+                        "legend": dict(zip(
+                            data["legend_text"].split(","),
+                            data["legend_color"].split(",")
+                        ))
+                    }
+                )
+            else:
+                data.update(
+                    {"legend": "None"}
+                )
         level1_data["charts"][chart]["ChartNo"] = chart.replace("Figure_", "Chart ").replace("_", ".")
         level1_data["charts"][chart]["panels"]  = level3_data
 
