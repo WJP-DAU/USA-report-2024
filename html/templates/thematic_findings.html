@@ -15,14 +15,19 @@
         {% endif %}
         {% for chart, chart_parameters in page_data.charts.items() %}
         {% if page_data.has_subsection %}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-2">
         {% else %}
-        <div class="row justify-content-center mb-3 pt-5">
+        <div class="row justify-content-center mb-2 pt-5">
         {% endif %}
             <div class="col-md-11 ml-4 bl-purple">
                 <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
                 <p class="fs-20 mb-0"><b>{{chart_parameters.chart_title}}</b></p>                            
                 <p><i>{{chart_parameters.chart_subtitle}}</i><br></p>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-2">
+            <div class="col-md-11">
+                <p><i>{{chart_parameters.chart_insight}}</i><br></p>
             </div>
         </div>
         {% if chart_parameters.legend != "None" %}
@@ -80,18 +85,23 @@
         {% endif %}
         {% for chart, chart_parameters in page_data.charts.items() %}
         {% if page_data.has_subsection %}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-2">
         {% else %}
-        <div class="row justify-content-center mb-3 pt-5">
+        <div class="row justify-content-center mb-2 pt-5">
         {% endif %}
             <div class="col-md-11 ml-4 bl-purple">
                 <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
                 <p class="fs-20 mb-0"><b>{{chart_parameters.chart_title}}</b></p>
-                <p class="mb-2"><i>{{chart_parameters.chart_subtitle}}</i></p>
+                <p class="mb-0"><i>{{chart_parameters.chart_subtitle}}</i></p>
             </div>
         </div>
+        <!-- <div class="row justify-content-center mb-2">
+            <div class="col-md-11">
+                <p><i>{{chart_parameters.chart_insight}}</i><br></p>
+            </div>
+        </div> -->
         {% if chart_parameters.legend != "None" %}
-        <div class="row justify-content-center mt-0 mb-4">
+        <div class="row justify-content-center mt-0 mb-2">
             <div class="col-md-11">
                 <p>
                     {% for key, color in chart_parameters.legend.items() %}
@@ -208,9 +218,9 @@
         {% endif %}
         {% for chart, chart_parameters in page_data.charts.items() %}
         {% if page_data.has_subsection %}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-2">
         {% else %}
-        <div class="row justify-content-center mb-3 pt-5">
+        <div class="row justify-content-center mb-2 pt-5">
         {% endif %}
             <div class="col-md-11 ml-4 bl-purple">
                 <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
@@ -218,8 +228,13 @@
                 <p class="mb-2"><i>{{chart_parameters.chart_subtitle}}</i></p>
             </div>
         </div>
+        <!-- <div class="row justify-content-center mb-2">
+            <div class="col-md-11">
+                <p><i>{{chart_parameters.chart_insight}}</i><br></p>
+            </div>
+        </div> -->
         {% if chart_parameters.legend != "None" %}
-        <div class="row justify-content-center mt-0 mb-4">
+        <div class="row justify-content-center mt-0 mb-2">
             <div class="col-md-11">
                 <p>
                     {% for key, color in chart_parameters.legend.items() %}
@@ -365,9 +380,9 @@
         {% endif %}
         {% for chart, chart_parameters in page_data.charts.items() %}
         {% if page_data.has_subsection %}
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-2">
         {% else %}
-        <div class="row justify-content-center mb-3 pt-5">
+        <div class="row justify-content-center mb-2 pt-5">
         {% endif %}
             <div class="col-md-11 ml-4 bl-purple">
                 <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
@@ -375,6 +390,11 @@
                 <p class="mb-2"><i>{{chart_parameters.chart_subtitle}}</i></p>
             </div>
         </div>
+        <!-- <div class="row justify-content-center mb-2">
+            <div class="col-md-11">
+                <p><i>{{chart_parameters.chart_insight}}</i><br></p>
+            </div>
+        </div> -->
         {% if chart_parameters.legend != "None" %}
         <div class="row justify-content-center">
             <div class="col-md-11">

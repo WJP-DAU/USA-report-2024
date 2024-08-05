@@ -102,7 +102,7 @@ def get_page_data(page_id, outline, figure_map):
 
     # Level 1
     level1_targets = ["id", "page", "evenPage", "section_header", "subsection_header", "charts", "has_subsection", "legend"]
-    level2_targets = ["id", "chart_title", "chart_subtitle", "footnote", "source", "legend_text", "legend_color"]
+    level2_targets = ["id", "chart_title", "chart_subtitle", "chart_insight", "footnote", "source", "legend_text", "legend_color"]
     level3_targets = ["panel", "panel_title", "panel_subtitle", "legend_text", "legend_color"]
     level1_data    = df2dict(outline.loc[outline["id"] == page_id, level1_targets])
     level1_data    = level1_data[page_id]
