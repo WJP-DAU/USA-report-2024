@@ -19,7 +19,33 @@ figure_map   = (
     .loc[(figure_map["id"] != "Figure_2") | (figure_map["panel"] != "B")]
     .loc[(figure_map["id"] != "Figure_2") | (figure_map["panel"] != "C")]
 )
-dynamic_data = functions.get_dynamic_data(general_info, outline)
+methodological_materials_df = pd.read_excel("../report_outline.xlsx", sheet_name="methodological_materials")
+other_publications_df = pd.read_excel("../report_outline.xlsx", sheet_name = "other_publications")
+dynamic_data = functions.get_dynamic_data(general_info, outline, methodological_materials_df)
+
+
+otherPublications = other_publications_df.to_dict(orient='records')
+
+# Create the publications data
+publications_data = {
+    "publications": [
+        {
+            "onClick": pub["onClick"],
+            "img": pub["img"],
+            "href": pub["href"],
+            "text": pub["text"]
+        }
+        for pub in otherPublications
+    ],
+    "header": outline.loc[outline["id"] == "Other Publications", "section_header"].iloc[0],
+    "evenPage": outline.loc[outline["id"] == "Other Publications", "evenPage"].iloc[0],
+    "page": outline.loc[outline["id"] == "Other Publications", "page"].iloc[0]
+}
+
+# Add to dynamic_data
+dynamic_data["otherPublications"] = publications_data
+
+
 thematic_findings = dict(
     zip(
         outline.loc[outline["thematic_findings"] == True].id, 
@@ -45,6 +71,7 @@ def report():
     pretty_html = soup.prettify(formatter = HTMLFormatter(indent=4))
     with open('index.html', 'w') as f:         
         f.write(pretty_html)   
+
     return pretty_html
 
 if __name__ == "__main__":
