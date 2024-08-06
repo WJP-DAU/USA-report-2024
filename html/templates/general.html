@@ -138,7 +138,7 @@
                             <div class="row justify-content-center mt-5">
                                 <div class="col-md-4">
                                     {% for _, row in section_data["toc"].iterrows() %}
-                                        <p class="li mb-0 text-white"><span class="hide-number">{{row["page"]}}</span><a href="#{{id}}">{{row["subsection_header"]}}</a></p>
+                                        <p class="li mb-0 text-white"><span class="hide-number">{{row["page"]}}</span><a href="#{{row['id']}}">{{row["subsection_header"]}}</a></p>
                                     {% endfor %}
                                 </div>
                             </div>

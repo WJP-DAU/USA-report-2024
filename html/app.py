@@ -69,7 +69,7 @@ def report():
     )
     soup = BeautifulSoup(rendered_html, 'html.parser')
     pretty_html = soup.prettify(formatter = HTMLFormatter(indent=4))
-    with open('index.html', 'w') as f:         
+    with open("index.html", "w", encoding = "utf-8") as f:         
         f.write(pretty_html)   
 
     return pretty_html

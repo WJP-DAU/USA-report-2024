@@ -264,31 +264,18 @@ def get_dynamic_data(general_info, outline,  methodological_materials_df):
               - 'acknowledgements': Acknowledgements text loaded from a markdown file.
     """
 
-    # otherPublications = other_publications_df.to_dict(orient='records')
-    # publications_data = {
-    #     "onClick": [pub["onClick"] for pub in otherPublications],
-    #     "img": [pub["img"] for pub in otherPublications],
-    #     "href": [pub["href"] for pub in otherPublications],
-    #     "text": [pub["text"] for pub in otherPublications],
-    #     "header": outline.loc[outline["id"] == "Other Publications", "section_header"].iloc[0],
-    #     "evenPage": outline.loc[outline["id"] == "Other Publications", "evenPage"].iloc[0],
-    #     "page": outline.loc[outline["id"] == "Other Publications", "page"].iloc[0]
-        
-    # }
-
     materials = methodological_materials_df.to_dict(orient='records')
     methodological_materials = {
-        "name" : [source["material_name"] for source in materials],
+        "name"        : [source["material_name"] for source in materials],
         "description" : [source["description"] for source in materials],
-        "link1"  : [source["link1"] for source in materials],
-        "label1" : [source["label1"] for source in materials],
-        "link2" : [source["link2"] for source in materials],
-        "label2" : [source["label2"] for source in materials],
-        "header": outline.loc[outline["id"] == "Materials", "section_header"].iloc[0],
-        "evenPage": outline.loc[outline["id"] == "Materials", "evenPage"].iloc[0],
-        "page": outline.loc[outline["id"] == "Materials", "page"].iloc[0]
+        "link1"       : [source["link1"] for source in materials],
+        "label1"      : [source["label1"] for source in materials],
+        "link2"       : [source["link2"] for source in materials],
+        "label2"      : [source["label2"] for source in materials],
+        "header"      : outline.loc[outline["id"] == "Materials", "section_header"].iloc[0],
+        "evenPage"    : outline.loc[outline["id"] == "Materials", "evenPage"].iloc[0],
+        "page"        : outline.loc[outline["id"] == "Materials", "page"].iloc[0]
     }
-
 
     dynamic_data = {
         "general": (
@@ -342,27 +329,26 @@ def get_dynamic_data(general_info, outline,  methodological_materials_df):
         "BackCover" : {
             "page"      : outline.loc[outline["id"] == "BackCover", "page"].iloc[0]
         },
-        # "otherPublications": publications_data,
+
         "methodological_materials" : methodological_materials,
-        "methodology": {
-        "text": process_methodology_markdown("text/methodology.md"),
-        "evenPage": outline.loc[outline["id"] == "Methodology1", "evenPage"].iloc[0],
-        "header"       : outline.loc[outline["id"] == "Methodology1", "section_header"].iloc[0],
-        "id": outline.loc[outline["id"] == "Methodology1", "id"].iloc[0],
-        "page" : outline.loc[outline["id"] == "Methodology1", "page"].iloc[0],
-        "subsection_header" : outline.loc[outline["id"] == "Methodology1", "subsection_header"].iloc[0],
+        "methodology" : {
+            "text"              : process_methodology_markdown("text/methodology.md"),
+            "evenPage"          : outline.loc[outline["id"] == "Methodology1", "evenPage"].iloc[0],
+            "header"            : outline.loc[outline["id"] == "Methodology1", "section_header"].iloc[0],
+            "id"                : outline.loc[outline["id"] == "Methodology1", "id"].iloc[0],
+            "page"              : outline.loc[outline["id"] == "Methodology1", "page"].iloc[0],
+            "subsection_header" : outline.loc[outline["id"] == "Methodology1", "subsection_header"].iloc[0],
         },
-        "description_sample": {
-        "text": process_methodology_markdown("text/sample_description.md"),
-        "evenPage": outline.loc[outline["id"] == "Methodology2", "evenPage"].iloc[0],
-        "header"       : outline.loc[outline["id"] == "Methodology2", "section_header"].iloc[0],
-        "id": outline.loc[outline["id"] == "Methodology2", "id"].iloc[0],
-        "page" : outline.loc[outline["id"] == "Methodology2", "page"].iloc[0],
-        "subsection_header" : outline.loc[outline["id"] == "Methodology2", "subsection_header"].iloc[0],
+        "description_sample" : {
+            "text"              : process_methodology_markdown("text/sample_description.md"),
+            "evenPage"          : outline.loc[outline["id"] == "Methodology2", "evenPage"].iloc[0],
+            "header"            : outline.loc[outline["id"] == "Methodology2", "section_header"].iloc[0],
+            "id"                : outline.loc[outline["id"] == "Methodology2", "id"].iloc[0],
+            "page"              : outline.loc[outline["id"] == "Methodology2", "page"].iloc[0],
+            "subsection_header" : outline.loc[outline["id"] == "Methodology2", "subsection_header"].iloc[0],
         }
         }
     
- 
     return dynamic_data
 
 def get_thematic_parameters(id, outline, figure_map):
