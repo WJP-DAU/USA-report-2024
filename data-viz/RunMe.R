@@ -36,10 +36,12 @@ master_data <- read_dta(
   mutate(
     latestYear = 2024,
     pparty = case_when(
+      year == 2018 & paff3 == "12103"                ~ "Democrats",
+      year == 2018 & paff3 == "12104"                ~ "Republicans",
       year == 2021 & paff3 == "The Democratic Party" ~ "Democrats",
       year == 2021 & paff3 == "The Republican Party" ~ "Republicans",
-      year == 2024 & USA_paff1 == 2 ~ "Democrats",
-      year == 2024 & USA_paff1 == 1 ~ "Republicans"
+      year == 2024 & USA_paff1 == 2                  ~ "Democrats",
+      year == 2024 & USA_paff1 == 1                  ~ "Republicans"
     ),
     USA_q21j_merge = case_when(  # USA_q21j_G1 & USA_q21e_G2 are the same
       !is.na(USA_q21j_G1) ~ USA_q21j_G1,
@@ -122,4 +124,5 @@ data_plots <- lapply(
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # source("code/data4dashboard.R")
-# get_data4dash()
+get_data4dash()
+ 
