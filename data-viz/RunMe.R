@@ -53,12 +53,11 @@ master_data <- read_dta(
     )
   ) %>%
   filter(
-    year >= 2014
+    year >= 2013
   )
 
 # Loading figure map & outline
 figure_map <- read.xlsx("../report_outline.xlsx", sheet = "figure_map") %>%
-  select(-status) %>%
   mutate(
     panelID = paste(id, panel, sep = "_")
   ) %>%
@@ -112,6 +111,7 @@ write.xlsx(data_points, "outputs/data_points.xlsx")
 # Calling a Visualizer for every panel
 data_plots <- lapply(
   viz_panels,
+  # "Figure_4_D",
   callVisualizer,
   figure_map = figure_map,
   outline    = outline
@@ -124,5 +124,5 @@ data_plots <- lapply(
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # source("code/data4dashboard.R")
-get_data4dash()
+# get_data4dash()
  

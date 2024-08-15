@@ -97,6 +97,7 @@
 		bottom: 200px;
 		left: 50%;
 		margin-left: -21%;
+		display: none;	/* To hide the title from the PDF*/
 	}
 	.ml-4.bl-purple{
 		margin-bottom: 20px;

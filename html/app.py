@@ -12,7 +12,7 @@ outline = (
     .assign(
         evenPage = lambda x: x["page"] % 2 == 0
     )
-)  
+)
 figure_map   = pd.read_excel("../report_outline.xlsx", sheet_name = "figure_map")
 figure_map   = (
     figure_map

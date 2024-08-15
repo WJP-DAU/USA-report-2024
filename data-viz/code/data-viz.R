@@ -56,7 +56,7 @@ extractParameters <- function(pid, figure_map, outline){
   
   if (pid %in% c(
     # "Figure_17_C", "Figure_17_D",                # Corruption over time (NO LONGER IN OUTLINE)
-    "Figure_7_C", "Figure_7_D"                     # Trust over time
+    "Figure_7_B", "Figure_7_C"                     # Trust over time
     # "Figure_23_A", "Figure_23_B", "Figure_23_C"  # Criminal Justice Actors (NO LONGER IN OUTLINE)
   )){
     names(parameters[["color_palette"]]) <- parameters[["variables"]]
@@ -140,10 +140,10 @@ callVisualizer <- function(pid, figure_map, outline){
       colors         = "variable",
       cvec           = parameters[["color_palette"]],
       custom.axis    = T,
-      x.breaks       = seq(2014, 2024, 2),
-      x.labels       = paste0("'", str_sub(seq(2014, 2024, 2), 
+      x.breaks       = seq(2012, 2024, 2),
+      x.labels       = paste0("'", str_sub(seq(2012, 2024, 2), 
                                            start = -2)),
-      sec.ticks      = seq(2014, 2024, 1),
+      sec.ticks      = seq(2012, 2024, 1),
       ptheme         = WJP_theme()
     )
   }
@@ -193,6 +193,7 @@ callVisualizer <- function(pid, figure_map, outline){
         data         = data,
         y_value      = "values2plot",
         x_var        = "variable",
+        x_lab_pos    = "order",
         label_var    = "labels",
         color_var    = "sample",
         nudge_lab    = 4.5,
@@ -230,7 +231,9 @@ callVisualizer <- function(pid, figure_map, outline){
       target  = "values2plot",
       rows    = r,
       color   = "year",
-      cgroups = c("2021", "2024"),
+      cgroups = c("2018", "2024"),
+      labels  = "labels",
+      labpos  = "labpos",
       cvec    = parameters[["color_palette"]],
       ptheme  = WJP_theme()
     )

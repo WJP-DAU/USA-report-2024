@@ -24,9 +24,7 @@
 
 study_variables <- c(
   "USA_q18a","USA_q18b","USA_q18c","q43_G2","USA_Regis1","USA_Regis2","USA_midterm",
-  "USA_paff3","USA_vote","USA_q21b_G1","USA_q21g_G1","USA_q21d_G2","USA_q21h_G2","USA_q21i_G2","USA_q21a_G1",
-  "USA_q21e_G1","USA_q21f_G1","USA_q21h_G1","USA_q21a_G2","USA_q1k","USA_q2h","USA_q21c_G1","USA_q21d_G1",
-  "USA_q21b_G2","USA_q21f_G2","USA_q21g_G2","USA_q21j_G2","USA_q21j_merge","USA_q21c_G2","USA_q20a",
+  "USA_paff3","USA_vote","USA_q20a",
   "USA_q20b","USA_q19a","USA_q19b","USA_q19c","USA_q19d","USA_q19e","USA_q19f","USA_q22a_G2","USA_q22b_G2",
   "USA_q22c_G2","USA_q22d_G2","USA_q22e_G2","USA_q22g","q1i","USA_q29","USA_q25","USA_q26","USA_q28","q50",
   "q51","q52","CAR_q73","CAR_q74","q45a_G1","q45b_G1","q46c_G2","q46f_G2","q46g_G2","q46c_G1","q46e_G2",
@@ -34,7 +32,10 @@ study_variables <- c(
   "q1a","q1d","q1b","q1c","q1e","q1f","q1g","q48a_G2","q48b_G2","q48c_G2","q48d_G2","q48a_G1","q48b_G1",
   "q48c_G1","q48d_G1","q18a","q18b","q18c","q18d","q18e","q18f","q48e_G2","q48f_G2","q48g_G2","q48e_G1",
   "q48f_G1","q48g_G1", "q48h_G1", "USA_q22a_G1", "USA_q22b_G1", "USA_q22c_G1", "USA_q22d_G1", "USA_q22e_G1",
-  "q45c_G1"
+  "q45c_G1",
+  "USA_q21b_G1","USA_q21g_G1","USA_q21d_G2","USA_q21h_G2","USA_q21i_G2","USA_q21a_G1",
+  "USA_q21e_G1","USA_q21f_G1","USA_q21h_G1","USA_q21a_G2","USA_q1k","USA_q2h","USA_q21c_G1","USA_q21d_G1",
+  "USA_q21b_G2","USA_q21f_G2","USA_q21g_G2","USA_q21j_G2","USA_q21j_merge","USA_q21c_G2"
 )
 
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -243,7 +244,7 @@ getDataPoints <- function(pid, figure_map){
   )
   
   if (parameters[["time_frame"]][1] == "All"){
-    parameters[["time_frame"]] <- c(2014, 2016, 2017, 2018, 2021, 2024)
+    parameters[["time_frame"]] <- c(2013, 2014, 2016, 2017, 2018, 2021, 2024)
   }
   
   # Filtering data
@@ -367,6 +368,55 @@ getDataPoints <- function(pid, figure_map){
       mutate(
         labels = labelVals(values2plot)
       )
+  }
+  
+  if (parameters["type"] == "Dumbbells"){
+    data2plot <- data2plot %>%
+      mutate(
+        labpos = case_when(
+          year == 2018 & sample == "Democrats"   ~ values2plot - 5,
+          year == 2018 & sample == "Republicans" ~ values2plot + 5,
+          year == 2024 & sample == "Democrats"   ~ values2plot + 5,
+          year == 2024 & sample == "Republicans" ~ values2plot - 5
+        )
+      )
+  }
+  
+  if (parameters["type"] == "Edgebars"){
+    
+    if (pid %in% c("Figure_11_A")){
+      data2plot <- data2plot %>%
+        mutate(
+          order = case_when(
+            variable == "USA_q1k"     ~ 5,
+            variable == "USA_q21g_G2" ~ 4,
+            variable == "USA_q21f_G1" ~ 3,
+            variable == "USA_q21e_G1" ~ 2,
+            variable == "USA_q2h"     ~ 1
+          )
+        )
+    }
+    if (pid %in% c("Figure_11_B")){
+      data2plot <- data2plot %>%
+        mutate(
+          order = case_when(
+            variable == "USA_q21b_G1" ~ 5,
+            variable == "USA_q21a_G2" ~ 4,
+            variable == "USA_q21a_G1" ~ 3,
+            variable == "USA_q21h_G1" ~ 2,
+            variable == "USA_q21j_merge" ~ 1
+          )
+        )
+    }
+    if (pid %in% c("Figure_11_C", "Figure_11_D")){
+      data2plot <- data2plot %>%
+        mutate(
+          order = row_number()
+        )
+    }
+    
+    
+    
   }
   
   return(data2plot)
