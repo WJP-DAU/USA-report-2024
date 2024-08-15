@@ -13,4 +13,4 @@ The data to be used in this project is a subset from the merged.dta file managed
 
 The VIZs are stored as vectors in SVG format.
 
-The `html` directory contains all the code used to produce the HTML (web) version of the report. The report is produced using a [Flask app](https://flask.palletsprojects.com/en/3.0.x/) and [Jinja2 templates](https://jinja.palletsprojects.com/en/3.1.x/).
+The `html` directory contains all the code used to produce the HTML (web) version of the report. The report is produced using Python as the main programming language, more specifically, using a [Flask app](https://flask.palletsprojects.com/en/3.0.x/) and [Jinja2 templates](https://jinja.palletsprojects.com/en/3.1.x/). Basic Knowledge of HTML and CSS is required to understand how the app renders the report.
