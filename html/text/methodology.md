@@ -6,7 +6,7 @@ The General Population Poll used to collect data in the United States in 2024 fe
 
 ## DATA COLLECTION
 
-The GPP in the United States was conducted for the WJP's *The Rule of Law in the United States: Key Findings from the General Population Poll 2024* with sampling, fieldwork, and data processing by YouGov, Nordic, based in Copenhagen, Denmark. YouGov, Nordic administered the surveys during the month of June 2024, conducting Computer-Assisted Web Interviews (CAWI) using a stratified random sampling design on their online panel. The target population group for this survey included residents aged 18 years or older residing across the following macro-regions: Northeast, Midwest, West, and South.
+The GPP in the United States was conducted for the WJP's *The Rule of Law in the United States: Key Findings from the* *General Population Poll 2024* with sampling, fieldwork, and data processing by YouGov, Nordic, based in Copenhagen, Denmark. YouGov, Nordic administered the surveys during the month of June 2024, conducting Computer-Assisted Web Interviews (CAWI) using a stratified random sampling design on their online panel. The target population group for this survey included residents aged 18 years or older residing across the following macro-regions: Northeast, Midwest, West, and South.
 
 ## SAMPLE SIZE AND SAMPLE FRAME
 
@@ -18,3 +18,8 @@ In order to address all relevant topics while controlling the questionnaire leng
 
 Regions were selected as the primary sampling unit to achieve a nationally representative sample of the country. Registered online panelist were randomly selected according to quotas for age, gender, geographic distribution, socioeconomic level, and level of urbanization. The sampling plan was approved by WJP before the start of fieldwork.
 
+## INTERVIEWING AND QUALITY CONTROL
+
+Once a respondent is selected for interview, YouGov send a unique link to the survey, which is only valid for one single submission. The sampling system algorythm directs panel members to the active survey where their particular profile (gender, age, region) is needed the most.
+
+A "*speed limit*" of 7 minutes was set and used to screen unusual completion times. A total of 61 completed surveys were rejected due to speeding. Interviews averaged 21 minutes in length.

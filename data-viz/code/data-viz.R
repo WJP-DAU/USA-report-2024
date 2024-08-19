@@ -131,13 +131,20 @@ callVisualizer <- function(pid, figure_map, outline){
   }
   
   if(parameters[["plot_function"]] == "Lines"){
+    if (pid %in% c("Figure_3_2_A")){
+      gvar <- data$sample
+      cvar <- "sample"
+    } else {
+      gvar <- data$variable
+      cvar <- "variable"
+    }
     viz <- wjp_lines(
       data           = data,                    
       target         = "values2plot",             
       grouping       = "year",
-      ngroups        = data$variable,                 
+      ngroups        = gvar,                 
       labels         = "labels",
-      colors         = "variable",
+      colors         = cvar,
       cvec           = parameters[["color_palette"]],
       custom.axis    = T,
       x.breaks       = seq(2012, 2024, 2),

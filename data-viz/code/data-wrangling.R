@@ -100,8 +100,6 @@ DataBank <- function(data) {
             all_of(c("variable", "sample")),
             .after = year
           )
-        
-        
       ) %>%
         mutate(
           perc = perc*100
@@ -414,9 +412,6 @@ getDataPoints <- function(pid, figure_map){
           order = row_number()
         )
     }
-    
-    
-    
   }
   
   return(data2plot)

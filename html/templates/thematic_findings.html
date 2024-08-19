@@ -31,7 +31,7 @@
             </div>
         </div> -->
         {% if chart_parameters.legend != "None" %}
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-0">
             <div class="col-md-11">
                 <p>
                     {% for key, color in chart_parameters.legend.items() %}
@@ -85,9 +85,9 @@
         {% endif %}
         {% for chart, chart_parameters in page_data.charts.items() %}
         {% if page_data.has_subsection %}
-        <div class="row justify-content-center mb-2">
+        <div class="row justify-content-center mb-1">
         {% else %}
-        <div class="row justify-content-center mb-2 pt-5">
+        <div class="row justify-content-center mb-1 pt-5">
         {% endif %}
             <div class="col-md-11 ml-4 bl-purple">
                 <p class="mb-0 ff-a c-purple">{{chart_parameters.ChartNo}}</p>
@@ -96,7 +96,7 @@
             </div>
         </div>
         <!-- <div class="row justify-content-center mb-2">
-            <div class="col-md-11">
+            <div class="col-md-11 rounded-gray-box">
                 <p><i>{{chart_parameters.chart_insight}}</i><br></p>
             </div>
         </div> -->

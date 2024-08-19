@@ -1,10 +1,13 @@
-<i>The Rule of Law in the United States: Key Findings from the WJP General Population Poll 2021</i> was produced by the World Justice Project under the research oversight of Alejandro Ponce and the executive direction of Elizabeth Andersen.
+<i>U.S. Rule of Law Trends & The 2024 Election</i> was produced by the World Justice Project under the research oversight of Alejandro Ponce and Tanya Weinberg and the executive direction of Elizabeth Andersen.
 
-The production of this report was led by Ana María Montoya and Tanya Primiani. This report was prepared by Santiago Pardo, Hannah Rigazzi,  Victoria Thomaides, and Carlos Toruño.
+Ana María Montoya and Carlos Toruño led the production of this report with assistance from Erin Campbell, Isabella Coddington, Artha Pillai, and Natalia Rodríguez Cajamarca. We thank Christine Detz and Santiago Pardo for their comments on the early drafts of this report.
 
-The findings in this report are taken from the General Population Poll (GPP) conducted for the World Justice Project in 2021. The GPP’s conceptual framework and methodology were developed by Mark David Agrast, Juan Carlos Botero, and Alejandro Ponce. The production of this iteration of the country report series was developed by Ana María Montoya, Santiago Pardo, Alejandro Ponce, Tanya Primiani, Hannah Rigazzi, Natalia Rodríguez Cajamarca, Victoria Thomaides, and Carlos Toruño Paniagua with the support of Said Aarji, Erin Campbell, James Davis, Joshua Fuller, Skye Jacobs, and Moss Woodbury.
+The data collection for the General Population Poll used for this report was conducted by Alicia Evangelides, Joshua Fuller, and Natalia Rodríguez Cajamarca. Sampling, fi eldwork, and data processing were in charge of YouGov, Nordic.
 
-Sampling, fieldwork, and data processing in the United States was conducted by YouGov, Nordic.
-Mariana Lopez was the graphic designer for this report. FlitStudio served as lead website developer for the online version of this report with assistance from Natalia Jardon, Mariana Lopez, and Enrique Paulin. Photo for cover provided by YayaErnst via iStock.
+Mariana Lopez was the graphic design lead for this report with support from Enrique Paulin.
+
+This report was made possible with the support of the U.S. Department of State’s Bureau of International Narcotics and Law Enforcement Affairs' Office of Europe and Asia (INL). The views expressed in this report are those of the survey respondents and do not necessarily represent the views of the United States government.
+
+Cover design by Raquel Medina with images from iStock.
 
 © Copyright 2024 by the World Justice Project.

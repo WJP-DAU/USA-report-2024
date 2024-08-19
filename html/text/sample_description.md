@@ -21,16 +21,9 @@ Most respondents (54%) reported that they had received a bachelor or graduate de
 
 ## RESPONSE RATES
 
-Eligible household, non-interview: N/A  
-Refusals: N/A  
+Rejected: 61  
 Break-off: 126  
 Non-contact: 0
-
-## INTERVIEWING AND QUALITY CONTROL
-
-Once a respondent is selected for interview, YouGov send a unique link to the survey, which is only valid for one single submission. The sampling system algorythm directs panel members to the active survey where their particular profile (gender, age, region) is needed the most.
-
-A "_speed limit_" of 7 minutes was set and used to screen unusual completion times. A total of 61 completed surveys were rejected due to speeding. Interviews averaged 21 minutes in length.
 
 ## DATA REVIEW AND JUSTIFICATION
 

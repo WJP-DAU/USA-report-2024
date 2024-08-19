@@ -22,8 +22,6 @@ figure_map   = (
 methodological_materials_df = pd.read_excel("../report_outline.xlsx", sheet_name="methodological_materials")
 other_publications_df = pd.read_excel("../report_outline.xlsx", sheet_name = "other_publications")
 dynamic_data = functions.get_dynamic_data(general_info, outline, methodological_materials_df)
-
-
 otherPublications = other_publications_df.to_dict(orient='records')
 
 # Create the publications data
@@ -44,8 +42,6 @@ publications_data = {
 
 # Add to dynamic_data
 dynamic_data["otherPublications"] = publications_data
-
-
 thematic_findings = dict(
     zip(
         outline.loc[outline["thematic_findings"] == True].id, 

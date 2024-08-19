@@ -18,6 +18,9 @@
                         {% elif section.title == "SAMPLING" %}
                             <p class="mb-0 c-purple"><b>{{ section.title }}</b></p>
                             <p class="mb-4">{{ section.content | safe }}</p>
+                        {% elif section.title == "INTERVIEWING AND QUALITY CONTROL" %}
+                            <p class="mb-0 c-purple"><b>{{ section.title }}</b></p>
+                            <p class="mb-4">{{ section.content | safe }}</p>
                         {% else %}
                             <p>{{ section.content | safe }}</p>
                         {% endif %}

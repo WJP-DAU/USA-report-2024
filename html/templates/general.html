@@ -372,9 +372,6 @@
 {% endmacro %}
 <!--END OF OTHER PUBLICATIONS-->
 
-
-
-
  <!-- WJP LOGO -->
   {% macro logo(section_data) %}
  <section class="back-cover pb-4">
@@ -387,11 +384,11 @@
             </div>
         </div>
     </div>
-    {% if section_data.evenPage %}
+    <!-- {% if section_data.evenPage %}
         <div class="page-number left-number"><b>{{section_data.page}}</b> {{section_data.header}}</div>
     {% else %}
         <div class="page-number">{{section_data.header}} <b>{{section_data.page}}</b></div>
-    {% endif %}
+    {% endif %} -->
 </section>
 {% endmacro %}
 <!-- end WJP LOGO -->
