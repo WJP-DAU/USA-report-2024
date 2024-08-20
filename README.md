@@ -44,4 +44,4 @@ The Jinja templates only contain the HTML code used for each `<section>` tag. Th
 ![](code-logic-html.png)
 
 ## Contact
-For inqueries please contact _Carlos Toruño_ (ctoruno@worldjusticeproject.org). For general information on the USA Report 2024, please contact _Ana María Montoya_ (amontoya@worldjusticeproject.org).
+For inqueries please contact _Carlos Toruño_ (ctoruno@worldjusticeproject.org) or _Isabella_Coddington_ (icoddington@worldjusticeproject.org). For general information on the USA Report 2024, please contact _Ana María Montoya_ (amontoya@worldjusticeproject.org).
