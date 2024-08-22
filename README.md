@@ -1,4 +1,4 @@
-The **_Rule of Law in the United States 2024_** presents question-level data drawnfrom the General Population Poll (GPP), an original data source designed and collected by the World Justice Project. The GPPwas conducted through online interviews to a nationally representative sample of 1,046 U.S. households in 2024. This poll wasdesigned to capture data on the experiences and perceptions of ordinary people regarding a variety of themes related to the ruleof law.
+The **_Rule of Law in the United States 2024_** presents question-level data drawnfrom the General Population Poll (GPP), an original data source designed and collected by the World Justice Project. The GPPwas conducted through online interviews to a nationally representative sample of 1,046 U.S. households in 2024. This poll was designed to capture data on the experiences and perceptions of ordinary people regarding a variety of themes related to the ruleof law.
 
 The data derived from the General Population Poll is presented in this report as thematic briefs, each one highlighting a different dimension of the rule of law from the perspective of people in the United States. The sections of this report describe people's perceptions and attitudes towards the following topics: accountability, authoritarianism, corruption, and trust in institutions. This edition of the **_The Rule of Law in the United States: Key Findings from the WJP General Population Poll 2024_** also presents a new set of questions related to the 2024 Presidential elections. These new questions are focused on the integrity of the electoralprocess and on people's attitudes when presented with hypothetical scenarios.
 
@@ -44,4 +44,4 @@ The Jinja templates only contain the HTML code used for each `<section>` tag. Th
 ![](code-logic-html.png)
 
 ## Contact
-For inqueries please contact _Carlos Toruño_ (ctoruno@worldjusticeproject.org) or _Isabella_Coddington_ (icoddington@worldjusticeproject.org). For general information on the USA Report 2024, please contact _Ana María Montoya_ (amontoya@worldjusticeproject.org).
+For inqueries please contact _Carlos Toruño_ (ctoruno@worldjusticeproject.org) or _Isabella Coddington_ (icoddington@worldjusticeproject.org). For general information on the USA Report 2024, please contact _Ana María Montoya_ (amontoya@worldjusticeproject.org).
