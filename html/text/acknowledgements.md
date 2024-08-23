@@ -1,6 +1,6 @@
-<i>U.S. Rule of Law Trends & The 2024 Election</i> was produced by the World Justice Project under the research oversight of Alejandro Ponce and Tanya Weinberg and the executive direction of Elizabeth Andersen.
+<i>U.S. Rule of Law Trends and the 2024 Election</i> was produced by the World Justice Project under the oversight of Alejandro Ponce and Tanya Weinberg and the executive direction of Elizabeth Andersen.
 
-Ana María Montoya and Carlos Toruño led the production of this report with assistance from Erin Campbell, Isabella Coddington, Artha Pillai, and Natalia Rodríguez Cajamarca. We thank Christine Detz and Santiago Pardo for their comments on the early drafts of this report.
+Ana María Montoya and Carlos Toruño led the production of this report with assistance from Erin Campbell, Isabella Coddington, James Davis, Artha Pillai, and Natalia Rodríguez Cajamarca. Christine Detz and Santiago Pardo provided comments on the early drafts of this report.
 
 The data collection for the General Population Poll used for this report was conducted by Alicia Evangelides, Joshua Fuller, and Natalia Rodríguez Cajamarca. Sampling, fieldwork, and data processing were in charge of YouGov, Nordic.
 

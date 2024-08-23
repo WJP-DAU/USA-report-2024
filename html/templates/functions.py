@@ -270,8 +270,8 @@ def get_dynamic_data(general_info, outline,  methodological_materials_df):
         "description" : [source["description"] for source in materials],
         "link1"       : [source["link1"] for source in materials],
         "label1"      : [source["label1"] for source in materials],
-        "link2"       : [source["link2"] for source in materials],
-        "label2"      : [source["label2"] for source in materials],
+        # "link2"       : [source["link2"] for source in materials],
+        # "label2"      : [source["label2"] for source in materials],
         "header"      : outline.loc[outline["id"] == "Materials", "section_header"].iloc[0],
         "evenPage"    : outline.loc[outline["id"] == "Materials", "evenPage"].iloc[0],
         "page"        : outline.loc[outline["id"] == "Materials", "page"].iloc[0]
