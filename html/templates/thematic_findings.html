@@ -414,7 +414,7 @@
                 <div class="row">
                     {% for panel, panel_parameters in chart_parameters.panels.items() %}
                     <div class="col-md-6 mb-5">
-                        <p><b>{{panel_parameters.panel_subtitle}}</b></p>
+                        <p><b><span class="lateral-bar">|</span> {{panel_parameters.panel_subtitle}}</b></p>
                         <img src="{{panel_parameters.imgPath}}" class="img-chart">
                     </div>
                     {% endfor %}
