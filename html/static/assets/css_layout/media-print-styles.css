@@ -173,9 +173,9 @@
 		margin-bottom: 0rem !important;
 	} 
 	.container-fluid.mt-5.bg-data-Acknowledgements .col-md-3 {
-		-ms-flex: 0 0 25%;
-		flex: 0 0 25%;
-		max-width: 25%;
+		-ms-flex: 0 0 30%;
+		flex: 0 0 30%;
+		max-width: 30%;
 	}
 	.container-fluid.mt-5.bg-data-Acknowledgements .col-md-3:last-child {
 		padding-right: 0px;
